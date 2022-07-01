@@ -1,2 +1,57 @@
 @charset "UTF-8";
 
+* {
+   margin: 0px;
+   padding: 0px;
+}
+
+body {
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+header {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: url(img/pexels-victor-freitas-841130.jpg) no-repeat center scroll;
+   background-size: cover;
+   height: 250px;
+}
+
+header div#logo {
+   background-color: aliceblue;
+   height: 50px;
+   width: 300px;
+}
+
+header nav {
+   height: 30px;
+   color: white;
+   justify-self: end;
+}
+
+main {
+   margin: 5px;
+   padding: 5px;
+}
+
+footer {
+   display: flex;
+   justify-content: center;
+   background-color: #333;
+   height: 30px;
+}
+
+ul {
+   display: flex;
+   list-style-type: none;
+   list-style-position: outside;
+}
+
+p {
+   text-align: justify;
+}
