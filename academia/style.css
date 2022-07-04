@@ -19,7 +19,9 @@ header {
    align-items: center;
    background: url(img/ORIGOcapa.png) no-repeat center scroll;
    background-size: cover;
-   height: 250px;
+   /* height: 250px; */
+   height: 100vh;
+   width: 100vw;
 }
 
 header div#logo {
@@ -30,9 +32,7 @@ header div#logo {
 }
 
 header nav {
-   height: 30px;
    color: white;
-   justify-self: end;
 }
 
 main {
