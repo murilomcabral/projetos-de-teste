@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+@import url(colorPallete.css);
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+::-webkit-scrollbar {
+   width: 10px;
+   height: 10px;
+}
+
+::-webkit-scrollbar-corner {
+   background-color: var(--cor06);
+}
+
+::-webkit-scrollbar-track-piece {
+   background-color: var(--cor06);
+}
+
+::-webkit-scrollbar-button {
+   height: 7px;
+   background-color: var(--cor07);
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: var(--cor01);
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+:link {
+   color: white;
+   text-decoration: none;
+}
+
+:link :hover, :visited :hover {
+   color: blanchedalmond;
+}
+
+:visited {
+   color: aliceblue;
+}
