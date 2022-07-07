@@ -1,10 +1,18 @@
 @charset "UTF-8";
 
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
 @import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@1&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @import url(colorPallete.css);
+
+@import url(pseudo.css);
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
 
 * {
    margin: 0px;
@@ -59,7 +67,7 @@ header {
    align-items: center;
    background: url(img/ORIGOcapa.png) no-repeat center scroll;
    background-size: cover;
-   height: 100vh;
+   height: 50vh;
 }
 
 header div#logo {
@@ -73,6 +81,11 @@ header div#logo {
    width: 300px;
 }
 
+section > :not(:last-child) {
+   border-bottom: 2px solid var(--cor01);
+   margin-bottom: 25px;
+}
+
 main {
    max-width: 600px;
    align-self: center;
@@ -83,21 +96,23 @@ main {
 main > nav {
    display: flex;
    justify-content: center;
+   width: 100%;
    margin-bottom: 20px;
-}
-
-section > :not(:last-child) {
-   border-bottom: 2px solid var(--cor01);
-   margin-bottom: 25px;
 }
 
 main > nav > ul {
    display: flex;
-   background-color: #333;
+   width: 300px;
+   justify-content: space-around;
    color: white;
-   padding: 15px;
-   gap: 20px;
    text-align: center;
+   padding: 5px 0px;
+}
+
+li {
+   background-color: var(--cor01);
+   width: 50px;
+   padding: 5px;
 }
 
 footer {
