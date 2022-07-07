@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* ----------------------------------------------- */
-/* ----------------------------------------------- */
+/* import----------------------------------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@1&display=swap');
 
@@ -12,15 +12,12 @@
 @import url(pseudo.css);
 
 /* ----------------------------------------------- */
-/* ----------------------------------------------- */
+/* geral------------------------------------------ */
 
 * {
    margin: 0px;
    padding: 0px;
 }
-
-/* ----------------------------------------------- */
-/* ----------------------------------------------- */
 
 @media only screen and (max-width: 500px) {
    div#logo img {
@@ -81,6 +78,22 @@ header div#logo {
    width: 300px;
 }
 
+svg#login {
+   position: absolute;
+   width: 20px;
+   top: 15px;
+   right: 15px;
+   fill: white;
+}
+
+svg#login :hover {
+   position: absolute;
+   width: 20px;
+   top: 15px;
+   right: 15px;
+   fill: var(--cor01);
+}
+
 section > :not(:last-child) {
    border-bottom: 2px solid var(--cor01);
    margin-bottom: 25px;
@@ -92,6 +105,9 @@ main {
    margin: 0px 0px;
    padding: 0px 10px;
 }
+
+/* ----------------------------------------------- */
+/* nav-------------------------------------------- */
 
 main > nav {
    display: flex;
@@ -111,9 +127,13 @@ main > nav > ul {
 
 li {
    background-color: var(--cor01);
-   width: 50px;
+   width: 60px;
    padding: 5px;
+   border-radius: 5px;
 }
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
 
 footer {
    display: flex;
