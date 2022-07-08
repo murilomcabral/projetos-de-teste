@@ -25,17 +25,9 @@
    }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 320px) {
    div#logo img {
-      width: 150px;
-   }
-
-   main > nav ul {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      width: 150px;
-      margin-bottom: 20px;
+      width: 180px;
    }
 }
 
@@ -48,7 +40,6 @@ iframe#map {
    margin: 10px 0px;
    border: 3px solid var(--corPrim);
 }
-
 
 body {
    /* width: calc(100vw - 10px); */
@@ -129,7 +120,19 @@ li {
    background-color: var(--cor01);
    width: 60px;
    padding: 5px;
-   border-radius: 5px;
+   border-radius: 3px;
+}
+
+ul > a :hover {
+   background-color: var(--cor03);
+   animation-name: glow;
+   animation-duration: 200ms;
+   animation-iteration-count: 1;
+}
+
+@keyframes glow {
+   from {background-color: var(--cor01);}
+   to {background-color: var(--cor03);}
 }
 
 /* ----------------------------------------------- */
