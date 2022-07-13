@@ -74,7 +74,9 @@ svg#login {
    width: 20px;
    top: 15px;
    right: 15px;
-   fill: white;
+   fill: transparent;
+   stroke: white;
+   stroke-width: 15px;
 }
 
 svg#login :hover {
@@ -82,7 +84,20 @@ svg#login :hover {
    width: 20px;
    top: 15px;
    right: 15px;
-   fill: var(--cor01);
+   animation: 1500ms des infinite linear;
+   stroke-dasharray: 851;
+   stroke-dashoffset: 0;
+}
+
+/* 851 */
+
+@keyframes des {
+   from {
+      stroke-dashoffset: 851;
+   }
+   to {
+      stroke-dashoffset: 0;
+   }
 }
 
 section > :not(:last-child) {
