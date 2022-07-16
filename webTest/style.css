@@ -19,18 +19,6 @@
    padding: 0px;
 }
 
-@media only screen and (max-width: 500px) {
-   div#logo img {
-      width: 220px;
-   }
-}
-
-@media only screen and (max-width: 320px) {
-   div#logo img {
-      width: 180px;
-   }
-}
-
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 
@@ -53,7 +41,7 @@ header {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   background: url(img/ORIGOcapa.png) no-repeat center scroll;
+   background: url(img/capa.png) no-repeat center scroll;
    background-size: cover;
    height: 50vh;
 }
@@ -71,7 +59,7 @@ header div#logo {
 
 svg#login {
    position: absolute;
-   width: 20px;
+   width: 30px;
    top: 15px;
    right: 15px;
    fill: transparent;
@@ -81,22 +69,23 @@ svg#login {
 
 svg#login :hover {
    position: absolute;
-   width: 20px;
    top: 15px;
    right: 15px;
-   animation: 1500ms des infinite linear;
-   stroke-dasharray: 851;
+   animation: 1000ms des infinite linear;
+   stroke-dasharray: 425;
    stroke-dashoffset: 0;
 }
 
 /* 851 */
 
 @keyframes des {
-   from {
+   0% {
       stroke-dashoffset: 851;
+      stroke: var(--cor01);
    }
-   to {
+   100% {
       stroke-dashoffset: 0;
+      stroke: var(--cor01);
    }
 }
 
