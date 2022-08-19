@@ -4,4 +4,10 @@ const pathDoSVG = document.querySelector('svg path');
 const tamanhoTotalDoPath = pathDoSVG.getTotalLenght();
 tagSVG.style.setProperty('--tamanhoTotalDoPath',tamanhoTotalDoPath);
 
-console.log(tamanhoTotalDoPath) //
+console.log(tamanhoTotalDoPath)
+
+
+window.addEventListener('scroll', function()) {
+   let navBar = document.querySelector('nav');
+   navBar.classList.toggle('sticky', window.scrollY > 0);
+}
