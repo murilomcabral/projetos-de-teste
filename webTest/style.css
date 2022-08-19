@@ -86,14 +86,14 @@ main {
 /* ----------------------------------------------- */
 /* nav-------------------------------------------- */
 
-main > nav {
+nav.notSticky {
    display: flex;
    justify-content: center;
    width: 100%;
    margin-bottom: 20px;
 }
 
-main > nav.sticky {
+nav.sticky {
    display: flex;
    justify-content: center;
    width: 100%;

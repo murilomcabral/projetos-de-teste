@@ -6,7 +6,7 @@ tagSVG.style.setProperty('--tamanhoTotalDoPath',tamanhoTotalDoPath);
 
 console.log(tamanhoTotalDoPath);
 
-window.addEventListener('scroll', function(){
+document.addEventListener('scroll', function() {
    let navBar = document.querySelector('.notSticky');
    navBar.classList.toggle('sticky', window.scrollY > 0);
 })
