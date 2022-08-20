@@ -11,13 +11,11 @@ body {
 }
 
 header {
-   width: 100vw;
+ padding: 10px;
 }
 
 nav {
-   padding: 5px;
-   display: flex;
-   justify-content: flex-end;
+   position: relative;
    font-weight: bold;
    font-size: 16px;
 }
@@ -32,4 +30,18 @@ ul {
    width: 400px;
    list-style-type: none;
    justify-content: space-around;
+}
+
+h1, p {
+   color: white;
+}
+
+main {
+   width: 100vw;
+}
+
+section {
+   text-align: left;
+   margin: 30px auto 10px;
+   width: 80%;
 }

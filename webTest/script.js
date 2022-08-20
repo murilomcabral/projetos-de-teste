@@ -6,7 +6,15 @@ tagSVG.style.setProperty('--tamanhoTotalDoPath',tamanhoTotalDoPath);
 
 console.log(tamanhoTotalDoPath);
 
-document.addEventListener('scroll', function() {
-   let navBar = document.querySelector('.notSticky');
-   navBar.classList.toggle('sticky', window.scrollY > 0);
-})
+// window.addEventListener('scroll', function() {
+//    let navBar = document.querySelector('.notSticky');
+//    navBar.classList.toggle('sticky', window.scrollY > 0);
+// }, true);
+
+window.addEventListener('scroll',
+function(){
+   let navBar = document.querySelector('.notSticky')
+   if (window.pageYOffset >= 200) {
+      navBar.classList.add('sticky');
+   }
+});
