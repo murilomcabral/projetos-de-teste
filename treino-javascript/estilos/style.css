@@ -8,16 +8,32 @@
 
 body {
    background-color: black;
+   padding: 15px;
+   display: block;
+   margin: auto;
 }
 
-header {
- padding: 10px;
+.nav1 {
+   position: relative;
+   padding: 10px 0px;
+   width: 100%;
+   background-color: hsl(0, 100%, 40%);
+}
+
+.nav2 {
+   position: fixed;
+   top: 0px;
+   right: 0px;
+   padding: 5px;
+   width: 100%;
+   background-color: hsl(0, 100%, 40%);
 }
 
 nav {
-   position: relative;
    font-weight: bold;
    font-size: 16px;
+   width: 400px;
+   margin-left: calc(100% - 400px);
 }
 
 nav a{
@@ -27,21 +43,20 @@ nav a{
 
 ul {
    display: flex;
-   width: 400px;
+   width: 100%;
    list-style-type: none;
    justify-content: space-around;
+}
+
+main {
+   margin-top: 20px;
 }
 
 h1, p {
    color: white;
 }
 
-main {
-   width: 100vw;
-}
-
 section {
    text-align: left;
    margin: 30px auto 10px;
-   width: 80%;
 }
