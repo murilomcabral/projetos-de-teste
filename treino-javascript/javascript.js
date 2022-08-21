@@ -1,4 +1,4 @@
 window.addEventListener('scroll', function () {
-   let navA = document.querySelector('header.nav1');
-   navA.classList.toggle('nav2', this.scrollY > 0)
+   let navA = document.querySelector('body header');
+   navA.classList.toggle('sticky', this.scrollY > 0)
 })
