@@ -52,13 +52,14 @@ ul {
    justify-content: space-around;
 }
 
+nav ul a:hover {
+   text-decoration: underline 2px white;
+}
+
+
 main {
    margin-top: 100px;
    padding: 20px;
-}
-
-h1, p {
-   color: white;
 }
 
 section {
@@ -66,15 +67,17 @@ section {
    margin: 30px auto 10px;
 }
 
-footer p {
-   padding: 10px;
-   text-align: center;
-}
-
 h1, h2, h3, h4, h5, h6 {
-   margin-bottom: 15px;
+   margin-bottom: 16px;
+   color: white;
 }
 
 p {
-   margin-bottom: 10px;
+   margin-bottom: 8px;
+   color: white;
+}
+
+footer p {
+   padding: 10px;
+   text-align: center;
 }
