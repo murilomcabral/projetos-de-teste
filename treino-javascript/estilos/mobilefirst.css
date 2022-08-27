@@ -16,7 +16,6 @@ body {
 body header {
    display: flex;
    position: absolute;
-   top: 0px;
    padding: 5px;
    width: 100%;
    justify-content: flex-end;
@@ -38,17 +37,11 @@ div#navHamb {
    margin: auto 10px;
    padding: 5px 3px;
    display: flex;
+   position: relative;
    flex-direction: column;
    justify-content: space-between;
    align-items: center;
    cursor: pointer;
-}
-
-div span {
-   width: 100%;
-   height: 3px;
-   border-radius: 1.5px;
-   background-color: white;
 }
 
 nav {
@@ -57,7 +50,6 @@ nav {
 }
 
 ul {
-   display: none;
    width: 100%;
    list-style-type: none;
    justify-content: space-around;
@@ -70,26 +62,60 @@ ul a{
 }
 
 ul a:hover {
-   border-width: 3px;
-   border-style: solid;
-   border-color: white;
-   border-radius: 20px;
-   /* border: 3px solid white; */
-   animation: navAnim 300ms infinite ease-in-out alternate-reverse;
+   text-decoration: underline 2px wavy white;
+   animation: navAnim 150ms infinite ease-in-out alternate-reverse;
 }
 
 @keyframes navAnim {
-   from {
-      border-color: white;
-   }
    to {
-      border-color: red;
+      text-decoration-color: greenyellow;
+   }
+}
+
+div span {
+   width: 100%;
+   height: 3px;
+   border-radius: 1.5px;
+   background-color: white;
+}
+
+span.lin2 {
+   animation: lin2 150ms ease-in-out forwards;
+}
+
+@keyframes lin2 {
+   50% {
+      transform: translateX(10px);
+      background-color: #fff0;
+   }
+   100% {
+      transform: translateX(0px);
+      background-color: #fff0;
+   }
+}
+
+span.lin1 {
+   animation: lin1 150ms ease-in-out forwards;
+}
+
+@keyframes lin1 {
+   to {
+      transform: rotate(-45deg) translate(-6px, 6px);
+   }
+}
+
+span.lin3 {
+   animation: lin3 150ms ease-in-out forwards;
+}
+
+@keyframes lin3 {
+   to {
+      transform: rotate(45deg) translate(-6px, -6px);
    }
 }
 
 main {
-   margin-top: 100px;
-   padding: 20px;
+      padding: 20px;
 }
 
 section {
