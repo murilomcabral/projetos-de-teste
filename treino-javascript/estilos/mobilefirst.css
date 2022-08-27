@@ -76,42 +76,23 @@ div span {
    width: 100%;
    height: 3px;
    border-radius: 1.5px;
-   background-color: white;
-}
-
-span.lin2 {
-   animation: lin2 150ms ease-in-out forwards;
-}
-
-@keyframes lin2 {
-   50% {
-      transform: translateX(10px);
-      background-color: #fff0;
-   }
-   100% {
-      transform: translateX(0px);
-      background-color: #fff0;
-   }
+   background-color: #ffff;
+   transition: all 300ms;
 }
 
 span.lin1 {
-   animation: lin1 150ms ease-in-out forwards;
+   transform: rotate(-45deg) translate(-6px, 6px);
+   background-color: #ffff;
 }
 
-@keyframes lin1 {
-   to {
-      transform: rotate(-45deg) translate(-6px, 6px);
-   }
+span.lin2 {
+   transform: translateX(-10px);
+   background-color: #fff0;
 }
 
 span.lin3 {
-   animation: lin3 150ms ease-in-out forwards;
-}
-
-@keyframes lin3 {
-   to {
-      transform: rotate(45deg) translate(-6px, -6px);
-   }
+   transform: rotate(45deg) translate(-6px, -6px);
+   background-color: #ffff;
 }
 
 main {

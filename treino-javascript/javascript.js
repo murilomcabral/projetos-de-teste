@@ -16,5 +16,4 @@ function navOpenClose() {
       document.getElementById('lin1').classList.remove('lin1');
       document.getElementById('lin3').classList.remove('lin3');
    }
-      let navA = document.querySelector('body header');
 }
