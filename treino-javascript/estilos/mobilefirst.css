@@ -73,7 +73,7 @@ ul a:hover {
 }
 
 div span {
-   width: 100%;
+   width: 20px;
    height: 3px;
    border-radius: 1.5px;
    background-color: #ffff;
