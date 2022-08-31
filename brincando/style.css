@@ -40,28 +40,13 @@ h3 {
    margin: 5px;
    border-radius: 7px;
    transform: scale(1);
-   transition: 5=300ms ease-in-out all;
+   transition: 100ms ease-in-out all;
 }
 
 .flex-container article:hover {
-   border-radius: 7px;
    cursor: pointer;
-   transform: scale(1.2);
+   border-radius: 7px;
+   transform: scale(1.5);
    background-color: deepskyblue;
-   transition: 300ms ease-in-out all;
-   animation: glow 700ms ease-in-out infinite alternate;
    z-index: 1;
-}
-
-.flex-container h3:hover {
-   z-index: 1;
-}
-
-@keyframes glow {
-   from {
-      box-shadow: 0px 0px 1px 1px #fffd;
-   }
-   to {
-      box-shadow: 0px 0px 5px 2px #fffd;
-   }
 }
