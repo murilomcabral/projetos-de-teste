@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+* {
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+}
+
+:root {
+   --navBarText: #ffffff;
+   --navBarBackground: #000000;
+   --mainText: #000000;
+   --mainBackground: #ffffff;
+   --footerText: #ffffff;
+   --footerBackground: #303030;
+}
+
+header {
+   height: 100px;
+   color: var(--navBarText);
+   background-color: var(--navBarBackground);
+}
+
+header nav {
+   color: white;
+}
+
+main {
+   background-color: var(--mainBackground);
+   color: var(--mainText);
+   height: 70vh;
+}
+
+footer {
+   background-color: var(--footerBackground);
+   color: var(--footerText);
+   text-align: center;
+   padding: 3px;
+}
