@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+:root {
+   --boxSize: 100px;
+   --boxQnt: 7;
+   --boxMargin: 5px;
+}
+
 * {
    margin: 0px;
    padding: 0px;
@@ -24,8 +30,10 @@ h3 {
 }
 
 .flex-container {
+   margin: auto;
    display: flex;
-   height: 400px;
+   height: 500px;
+   width: calc(var(--boxSize) * var(--boxQnt) + (var(--boxQnt) * (var(--boxMargin) * 2)));
    flex-flow: row wrap;
    justify-content: center;
    align-content: center;
@@ -36,8 +44,8 @@ h3 {
 .flex-container article {
    backdrop-filter: blur(6px);
    box-shadow: 0px 0px 10px 3px #0003;
-   width: 100px;
-   margin: 5px;
+   width: var(--boxSize);
+   margin: var(--boxMargin);
    border-radius: 7px;
    transform: scale(1);
    transition: 100ms ease-in-out all;
