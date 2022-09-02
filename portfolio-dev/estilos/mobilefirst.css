@@ -1,10 +1,6 @@
 @charset "UTF-8";
 
-* {
-   margin: 0px;
-   padding: 0px;
-   box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
    --navBarText: #ffffff;
@@ -12,28 +8,78 @@
    --mainText: #000000;
    --mainBackground: #ffffff;
    --footerText: #ffffff;
-   --footerBackground: #303030;
+   --footerBackground: #000c;
+   --navFont: 'Source Code Pro', monospace;
+   --linkHover: coral;
+}
+
+:link {
+   text-decoration: none;
+}
+
+:active {
+   color: white;
+}
+
+:visited {
+   color: var(--navBarText);
+}
+
+* {
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
 }
 
 header {
-   height: 100px;
+   height: min-content;
    color: var(--navBarText);
    background-color: var(--navBarBackground);
+   padding: 10px 50px;
 }
 
-header nav {
+nav ul {
    color: white;
+   list-style-type: none;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: 20px;
+}
+
+ul li {
+   text-align: center;
+   font-family: var(--navFont);
+   font-weight: 600;
+   gap: 5px;
+}
+
+/* efeito fadeout no menu de navegação */
+
+li:hover {
+   color: var(--linkHover);
+}
+
+ul:hover li:not(:hover) {
+   opacity: 0.3;
 }
 
 main {
    background-color: var(--mainBackground);
    color: var(--mainText);
    height: 70vh;
+   padding: 20px 15px;
 }
 
+/* rodapé fixo */
+
 footer {
+   position: fixed;
+   width: 100%;
+   bottom: 0px;
    background-color: var(--footerBackground);
    color: var(--footerText);
    text-align: center;
    padding: 3px;
+   backdrop-filter: blur(3px);
 }
