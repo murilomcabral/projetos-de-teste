@@ -4,21 +4,17 @@
 
 :root {
    --navBarText: #ffffff;
-   --navBarBackground: #000000;
+   --navBarBackground: transparent;
    --mainText: #000000;
    --mainBackground: #ffffff;
-   --footerText: #ffffff;
-   --footerBackground: #000c;
+   --footerText: #000000;
+   --footerBackground: transparent;
    --navFont: 'Source Code Pro', monospace;
-   --linkHover: coral;
+   --linkHover: rgb(255, 200, 0);
 }
 
 :link {
    text-decoration: none;
-}
-
-:active {
-   color: white;
 }
 
 :visited {
@@ -32,37 +28,37 @@
 }
 
 header {
+   display: flex;
+   justify-content: flex-end;
    height: min-content;
    color: var(--navBarText);
    background-color: var(--navBarBackground);
    padding: 10px 50px;
+   backdrop-filter: invert(1);
 }
 
 nav ul {
-   color: white;
+   color: var(--navBarText);
    list-style-type: none;
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
-   gap: 20px;
+   display: inline;
+   text-align: center;
 }
 
 ul li {
    text-align: center;
    font-family: var(--navFont);
    font-weight: 600;
-   gap: 5px;
+   display: inline;
+   margin-left: 20px;
 }
 
-/* efeito fadeout no menu de navegação */
-
-li:hover {
+a:hover {
    color: var(--linkHover);
 }
 
-ul:hover li:not(:hover) {
-   opacity: 0.3;
-}
+/* ul:hover li:not(:hover) {
+   opacity: 0.5
+} */
 
 main {
    background-color: var(--mainBackground);
@@ -70,8 +66,6 @@ main {
    height: 70vh;
    padding: 20px 15px;
 }
-
-/* rodapé fixo */
 
 footer {
    position: fixed;
@@ -81,5 +75,6 @@ footer {
    color: var(--footerText);
    text-align: center;
    padding: 3px;
-   backdrop-filter: blur(3px);
+   font-weight: 600;
+   backdrop-filter: blur(6px);
 }
