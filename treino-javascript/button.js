@@ -1,7 +1,7 @@
 function fontDec () {
    let fontSDec = document.querySelectorAll('p');
    for (let i = 0; i < 10; i++) {
-      fontSDec[i].style.fontSize = '80%';
+      fontSDec[i].style.fontSize = '0.7em';
    }
 }
 
@@ -15,6 +15,11 @@ function fontNor () {
 function fontInc () {
    let fontSInc = document.querySelectorAll('p');
    for (let i = 0; i < 10; i++) {
-      fontSInc[i].style.fontSize = '120%';
+      fontSInc[i].style.fontSize = '1.3em';
    }
+}
+
+for (let i = 0; i < 10; i++) {
+   let aLLD = document.querySelectorAll('p');
+   aLLD[i].setAttribute('tabindex','0');
 }

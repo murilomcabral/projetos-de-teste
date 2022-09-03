@@ -5,6 +5,7 @@
    --bttSpace: 5px; 
    --bttSpace2: calc((var(--bttSpace)*2) + var(--bttSize));
    --bttSpace3: calc((var(--bttSpace)*3) + var(--bttSize)*2);
+   --bttHoverColor: rgb(0, 255, 0);
 }
 
 button {
@@ -19,6 +20,7 @@ button {
    border-radius: 10px;
    border-color: rgb(255, 0, 0);
    transition: filter 300ms;
+   user-select: none;
 }
 
 #fontSizeDecrease {
@@ -34,13 +36,13 @@ button {
 }
 
 #fontSizeDecrease:hover {
-   border-color: rgb(0, 255, 0);
+   border-color: var(--bttHoverColor);
 }
 
 #fontSizeNormal:hover {
-   border-color: rgb(0, 255, 0);
+   border-color: var(--bttHoverColor);
 }
 
 #fontSizeIncrease:hover {
-   border-color: rgb(0, 255, 0);
+   border-color: var(--bttHoverColor);
 }

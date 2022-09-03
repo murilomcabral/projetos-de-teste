@@ -51,6 +51,7 @@ div#navHamb {
 nav {
    font-weight: bold;
    font-size: 16px;
+   user-select: none;
 }
 
 ul {
@@ -72,12 +73,14 @@ ul a:hover {
 
 @keyframes navAnim {
    to {
-      text-decoration-color: greenyellow;
+      text-decoration-color: var(--bttHoverColor);
    }
 }
 
+/* hamburguer menu bar size */
+
 div span {
-   width: 20px;
+   width: 25px;
    height: 3px;
    border-radius: 1.5px;
    background-color: #ffff;
@@ -92,6 +95,7 @@ span.lin1 {
 span.lin2 {
    transform: translateX(-10px);
    background-color: #fff0;
+   visibility: hidden;
 }
 
 span.lin3 {
@@ -116,9 +120,15 @@ h1, h2, h3, h4, h5, h6 {
 p {
    margin-bottom: 8px;
    color: white;
+   text-align: justify;
 }
 
 footer p {
    padding: 10px;
    text-align: center;
+   user-select: none;
+}
+
+.teste {
+   background-color: red;
 }
