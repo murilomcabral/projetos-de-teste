@@ -1,10 +1,40 @@
 @charset "UTF-8";
 
+:root {
+   --navBar: hsl(0, 100%, 40%);
+}
+
 * {
    margin: 0px;
    padding: 0px;
    box-sizing: border-box;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media screen and (max-width:720px) {
+   nav {
+      position: relative;
+   }
+
+   ul {
+      display: flex;
+      top: 20px;
+      right: -55px;
+      gap: 10px;
+      padding: 3px;
+      position: absolute;
+      flex-direction: column;
+      background-color: var(--navBar);
+   }
+
+   main section {
+      padding: 30px;
+   }
+
+   main h1 {
+      margin-bottom: 50px;
+   }
+
 }
 
 ::-webkit-scrollbar {
@@ -32,7 +62,7 @@ body header {
    position: fixed;
    padding: 5px;
    width: 100%;
-   background-color: hsl(0, 100%, 40%);
+   background-color: var(--navBar);
    box-shadow: 0px 5px 20px 10px #0007;
 }
 

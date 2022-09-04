@@ -7,6 +7,7 @@
    <link rel="stylesheet" href="estilos/style.css" media="all">
    <link rel="stylesheet" href="estilos/mobilefirst.css" media="all">
    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
    <title>Meu primeiro portfólio.</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
       <nav>
          <ul id="navBar" style="display: none;">
             <li><a href="index.html">Início</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="#">Sobre</a></li>
             <li><a href="#">Conhecimentos</a></li>
             <li><a href="#">Projetos</a></li>
             <li><a href="#">Contato</a></li>
@@ -28,8 +29,9 @@
       <button id="fontSizeDecrease" onclick="fontDec()">&minus;</button>
       <button id="fontSizeNormal" onclick="fontNor()">•</button>
       <button id="fontSizeIncrease" onclick="fontInc()">&plus;</button>
+      <button id="userID" onclick="mudarUsuario()"><span class="material-symbols-outlined">person</span></button>
    </header>
-   <!-- <myHeader></myHeader> -->
+   <myCommonHeader></myCommonHeader>
    <main>
       <section>
          <h1>Seja Bem-Vindo ao meu primeiro Portfólio! :)</h1>
@@ -64,6 +66,6 @@
    <!-- <myFooter></myFooter> -->
    <script src="script/nav.js"></script>
    <script src="script/button.js"></script>
-   <script type="module" src="script/assets.js"></script>
+   <script src="script/htmlCustom.js"></script>
 </body>
 </html>

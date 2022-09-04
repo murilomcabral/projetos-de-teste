@@ -5,6 +5,7 @@
    --bttSpace: 5px; 
    --bttSpace2: calc((var(--bttSpace)*2) + var(--bttSize));
    --bttSpace3: calc((var(--bttSpace)*3) + var(--bttSize)*2);
+   --bttSpace4: calc((var(--bttSpace)*4) + var(--bttSize)*3);
    --bttHoverColor: rgb(0, 255, 0);
 }
 
@@ -23,6 +24,10 @@ button {
    user-select: none;
 }
 
+button:hover {
+   border-color: var(--bttHoverColor);
+}
+
 #fontSizeDecrease {
    left: var(--bttSpace);
 }
@@ -35,14 +40,6 @@ button {
    left: var(--bttSpace3);
 }
 
-#fontSizeDecrease:hover {
-   border-color: var(--bttHoverColor);
-}
-
-#fontSizeNormal:hover {
-   border-color: var(--bttHoverColor);
-}
-
-#fontSizeIncrease:hover {
-   border-color: var(--bttHoverColor);
+#userID {
+   left: var(--bttSpace4);
 }
