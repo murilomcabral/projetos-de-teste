@@ -1,8 +1,11 @@
 @charset "UTF-8";
 
 :root {
-   --boxSize: 100px;
-   --boxQnt: 7;
+   /* largura do bloco */
+   --boxSize: 50px;
+   /* quantidade de blocos por linha*/
+   --boxQnt: 3;
+   /* distância entre blocos*/
    --boxMargin: 5px;
 }
 
@@ -14,7 +17,12 @@
    font-weight: bold;
 }
 
+body {
+   background-color: rgb(112, 0, 84);
+}
+
 h1 {
+   color: white;
    text-align: center;
    margin: 10px 0px;
 }
@@ -32,13 +40,12 @@ h3 {
 .flex-container {
    margin: auto;
    display: flex;
+   flex-direction: row;
    height: 500px;
    width: calc(var(--boxSize) * var(--boxQnt) + (var(--boxQnt) * (var(--boxMargin) * 2)));
    flex-flow: row wrap;
    justify-content: center;
    align-content: center;
-   background-color: dodgerblue;
-   background-image: url(capa.png);
 }
 
 .flex-container article {
@@ -55,6 +62,6 @@ h3 {
    cursor: pointer;
    border-radius: 7px;
    transform: scale(1.5);
-   background-color: deepskyblue;
+   background-color: rgb(5, 138, 0);
    z-index: 1;
 }
