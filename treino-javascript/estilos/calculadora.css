@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+div {
+   position: relative;
+}
+
+div input {
+   position: absolute;
+   top: 0px;
+   left: 50%;
+   transform: translateX(-50%);
+   display: block;
+   font-size: 24px;
+   padding: 3px;
+   text-align: right;
+   margin: auto;
+}
+
+div ul {
+   position: absolute;
+   display: flex;
+   top: 60px;
+   left: 50%;
+   transform: translateX(-50%);
+   flex-wrap: wrap;
+   width: 180px;
+}
+
+ul li {
+   color: white;
+   font-size: 20px;
+}
+
+div ul button {
+   position: relative;
+   margin: 5px;
+}
+
+.material-symbols-outlined {
+   font-variation-settings:
+   'FILL' 0,
+   'wght' 100,
+   'GRAD' 0,
+   'opsz' 48,
+}
+
+footer {
+   position: fixed;
+   bottom: 0px;
+   width: 100%;
+}

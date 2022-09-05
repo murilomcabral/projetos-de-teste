@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="estilos/style.css" media="all">
+   <link rel="stylesheet" href="estilos/mobilefirst.css" media="all">
+   <link rel="stylesheet" href="estilos/common.css">
+   <link rel="stylesheet" href="estilos/calculadora.css">
+   <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   <!-- simbolos calculadora -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+
+   <title>Meu primeiro portfólio.</title>
+</head>
+<body>
+   <header class="">
+      <nav>
+         <ul id="navBar" style="display: none;">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Conhecimentos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="#">Contato</a></li>
+         </ul>
+      </nav>
+      <div id="navHamb" onclick="navOpenClose()" tabindex="0">
+         <span id="lin1" class=""></span>
+         <span id="lin2" class=""></span>
+         <span id="lin3" class=""></span>
+      </div>
+      <button id="fontSizeDecrease" onclick="fontDec()">&minus;</button>
+      <button id="fontSizeNormal" onclick="fontNor()">•</button>
+      <button id="fontSizeIncrease" onclick="fontInc()">&plus;</button>
+      <button id="userID" onclick="mudarUsuario()"><span class="material-symbols-outlined">person</span></button>
+   </header>
+   <main>
+      <section>
+         <h1>Calculadora</h1>
+         <div>
+            <input type="number">
+            <ul id="calculadora">
+               <button>
+                  <li>%</li>
+               </button>
+               <button>
+                  <li>C</li>
+               </button>
+               <button>
+                  <li><span class="material-symbols-outlined">backspace</span></li>
+               </button>
+               <button>
+                  <li>/</li>
+               </button>
+               <button>
+                  <li>7</li>
+               </button>
+               <button>
+                  <li>8</li>
+               </button>
+               <button>
+                  <li>9</li>
+               </button>
+               <button>
+                  <li>X</li>
+               </button>
+               <button>
+                  <li>4</li>
+               </button>
+               <button>
+                  <li>5</li>
+               </button>
+               <button>
+                  <li>6</li>
+               </button>
+               <button>
+                  <li>-</li>
+               </button>
+               <button>
+                  <li>1</li>
+               </button>
+               <button>
+                  <li>2</li>
+               </button>
+               <button>
+                  <li>3</li>
+               </button>
+               <button>
+                  <li>+</li>
+               </button>
+               <button>
+                  <li>!</li>
+               </button>
+               <button>
+                  <li>0</li>
+               </button>
+               <button>
+                  <li>,</li>
+               </button>
+               <button>
+                  <li>;</li>
+               </button>
+            </ul>
+         </div>
+      </section>
+   </main>
+   <footer>
+      <p>Since 2021</p>
+   </footer>
+   <!-- <myFooter></myFooter> -->
+   <script src="script/nav.js"></script>
+   <script src="script/button.js"></script>
+   <script src="script/calculador.js"></script>
+</body>
+</html>
