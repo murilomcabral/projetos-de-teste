@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-:root {
-   --navBar: hsl(0, 100%, 40%);
-}
-
 * {
    margin: 0px;
    padding: 0px;
@@ -42,7 +38,7 @@
 }
 
 body {
-   background-color: black;
+   background-color: var(--bodyBackgroundColor);
    display: block;
    margin: auto;
 }
@@ -56,6 +52,7 @@ body header {
    align-items: center;
    transition: 150ms;
    transition-timing-function: ease-in-out;
+   background-color: var(--navBar);
 }
 
 .sticky {
@@ -91,20 +88,14 @@ ul {
 
 li a{
    position: relative;
-   color: white;
+   color: var(--primColor);
    text-decoration: none;
    padding: 0px 10px;
 }
 
 li a:hover {
-   text-decoration: underline 2px wavy white;
-   animation: navAnim 150ms infinite ease-in-out alternate-reverse;
-}
-
-@keyframes navAnim {
-   to {
-      text-decoration-color: var(--bttHoverColor);
-   }
+   transition: 150ms color;
+   color: var(--primHoverColor);
 }
 
 /* hamburguer menu bar size */
@@ -113,28 +104,30 @@ div span {
    width: 25px;
    height: 3px;
    border-radius: 1.5px;
-   background-color: #ffff;
-   transition: all 300ms;
+   background-color: var(--primColor);
+   transition: all 150ms;
+}
+
+div#navHamb:hover span {
+   background-color: var(--primHoverColor);
 }
 
 span.lin1 {
    transform: rotate(-45deg) translate(-6px, 6px);
-   background-color: #ffff;
+   background-color: var(--primColor);
 }
 
 span.lin2 {
-   transform: translateX(-10px);
-   background-color: #fff0;
-   visibility: hidden;
+   display: none;
 }
 
 span.lin3 {
    transform: rotate(45deg) translate(-6px, -6px);
-   background-color: #ffff;
+   background-color: var(--primColor);
 }
 
 main {
-   padding: 20px;
+   padding: 50px;
 }
 
 section {
@@ -157,8 +150,4 @@ footer p {
    padding: 10px;
    text-align: center;
    user-select: none;
-}
-
-.teste {
-   background-color: red;
 }

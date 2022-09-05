@@ -19,6 +19,8 @@ function fontInc () {
    }
 }
 
+// tabindex adicionado aos elementos
+
 for (let i = 0; i < 10; i++) {
    let aLLD = document.querySelectorAll('p');
    aLLD[i].setAttribute('tabindex','0');
