@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+:root {
+   --calcButtonWidth: 80px;
+}
+
 div {
    position: relative;
 }
@@ -23,15 +27,24 @@ div ul {
    left: 50%;
    transform: translateX(-50%);
    flex-wrap: wrap;
-   width: 180px;
+   width: calc(var(--calcButtonWidth) * 4);
 }
 
-ul li {
-   color: white;
-   font-size: 20px;
+#calculadora li {
+   width: var(--calcButtonWidth);
 }
 
-div ul button {
+#calculadora li img {
+   cursor: pointer;
+   transition: scale 50ms;
+}
+
+#calculadora li img:hover {
+   scale: 1.1;
+}
+
+
+div ul img {
    position: relative;
    margin: 5px;
 }
