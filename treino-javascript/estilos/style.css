@@ -1,36 +1,10 @@
 @charset "UTF-8";
 
-button {
-   position: fixed;
-   font-family: Arial, Helvetica, sans-serif;
-   font-weight: bold;
-   height: var(--bttSize);
-   width: var(--bttSize);
-   background-color: rgb(85, 85, 85);
-   color: white;
-   cursor: pointer;
-   border-radius: 10px;
-   border-color: var(--primColor);
-   transition: filter 300ms;
-   user-select: none;
+:root {
+   margin: 0px;
+   padding: 0px;
 }
 
-button:hover {
-   border-color: var(--primHoverColor);
-}
-
-#fontSizeDecrease {
-   left: var(--bttSpace);
-}
-
-#fontSizeNormal {
-   left: var(--bttSpace2);
-}
-
-#fontSizeIncrease {
-   left: var(--bttSpace3);
-}
-
-#userID {
-   left: var(--bttSpace4);
+body {
+   background-color: #ddd;
 }
