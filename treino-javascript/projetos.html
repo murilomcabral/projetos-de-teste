@@ -4,73 +4,41 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <style>
-      div#separador {
-         border-bottom: 2px solid black;
-      }
-   </style>
-   <title>testes</title>
+   <link rel="stylesheet" href="style.css">
+   <title>Teste tabela</title>
 </head>
 <body>
-   <section>
-      <button>Start machine</button>
-      <p>The machine is stopped.</p>
-   </section>
-   <div id="separador"></div>
-   <section class="preview"></section>
-
+   <form class="container" action="">
+      <p>Nome: <input class="nome" type="text" placeholder="Nome completo"></p>
+      <p>Data nasc.: <input class="dataNasc" type="date" placeholder="Somente numeros"></p>
+      <p>Sexo: <input class="genero1" type="radio" name="gender">Masculino<input class="genero2" type="radio" name="gender">Feminino</p> 
+      <p><button class="botaoCadastrar" type="submit">Cadastrar</button></p>
+   </form>
+   <table>
+      <tr>
+         <th>Nome</th>
+         <th>Idade</th>
+         <th>Sexo</th>
+      </tr>
+      <tr>
+         <td>Murilo</td>
+         <td>29 anos</td>
+         <td>Masc.</td>
+      </tr>
+   </table>
    <script>
-      const btn = document.querySelector("button");
-      const txt = document.querySelector("p");
+      let lista = [];
+      let objeto = {"nome":"","idade":"","gender":""};
 
-      btn.addEventListener("click", updateBtn);
+      let tableLista = document.querySelector("table");
+      let submitLista = document.querySelector(".botaoCadastrar");
 
-      function updateBtn() {
-      if (btn.textContent === "Start machine") {
-            btn.textContent = "Stop machine";
-            txt.textContent = "The machine has started!";
-         } else {
-            btn.textContent = "Start machine";
-            txt.textContent = "The machine is stopped.";
-         }
-      }
+      let campoNome = document.querySelector(".nome");
+      let campoNasc = document.querySelector(".dataNasc");
+      let gender = "";
 
-      // ===========================================================
-      // ===========================================================
-
-      let section = document.querySelector('section.preview');
-
-      // ===========================================================
-      // ===========================================================
-      let finalResult;
-
-      let evenOddResult;
-
-      // Add your code here
-
-      let num1 = 2;
-      let num2 = 4;
-      let num3 = 10;
-      let num4 = 2;
-
-      let sumNum = num1 + num2;
-      let subNum = num3 - num4;
-      finalResult = sumNum * subNum;
-
-      evenOddResult = finalResult % 2;
-
-      // Don't edit the code below here!
-
-      section.innerHTML = ' ';
-      const para1 = document.createElement('p');
-      const finalResultCheck = finalResult === 48 ? `Yes, well done!` : `No, it is ${ finalResult }`;
-      para1.textContent = `Is the finalResult 48? ${ finalResultCheck }`;
-      const para2 = document.createElement('p');
-      const evenOddResultCheck = evenOddResult === 0 ? 'The final result is even!' : 'The final result is odd. Hrm.';
-      para2.textContent = evenOddResultCheck;
-
-      section.appendChild(para1);
-      section.appendChild(para2);
+      submitLista.addEventListener("click",function() {
+      })
    </script>
 </body>
 </html>
