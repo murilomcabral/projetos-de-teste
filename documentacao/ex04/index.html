@@ -19,51 +19,75 @@
          text-align: center;
       }
       button {
+         width: 200px;
+         height: 50px;
          text-align: center;
+      }
+      [menu] {
+         display: flex;
+         gap: 10px;
       }
    </style>
 </head>
+
 <body>
-   <h1>TESTANDO</h1>
-   <button onclick="verificar()">VERIFICAR</button>
+
+   <h1>LISTA</h1>
+   <div menu><button onclick="cadastrar()">CADASTRAR</button><button onclick="verificar()">VERIFICAR</button></div>
+   <table dataTable>
+      <th>Nome da Cidade</th>
+         <td></td>
+   </table>
+
    <script>
-      let lista = ['Murilo','Edwaldo','Gustavo','Juliano','Regina'];
+      const lista = ['Londrina','Cambé','Rolândia','Arapongas','Maringá','Apucarana'];
+      let listaAlt = lista;
       let nome = ''
 
       function contOper(){
          let resp = prompt('Tentar outra vez? (s/n)')
-         if (resp == 's') {
+         if (resp ==! 'n') {
             verificar()
          } else {
             alert('Operação finalizada.')
-         }
+         };
+      }
+
+      function tabela() {
+         let tabelaData = document.querySelector('[dataTable]')
+         let containerData = document.createElement('td');
+         let dado = nome;
+         tabelaData.appendChild(dado);         
       }
 
       function verificar() {
-         nome = prompt(`Deletar nome na lista: ${lista}`);
-         if (lista.includes(nome)){
-         let index = lista.indexOf(nome);
-         lista.splice(index,1);
-         alert(`O nome \"${nome}\" foi deletado da lista.`);
-         alert(`Nova lista: ${lista}`);
-
-         let resp = prompt('Tentar outra vez? (s/n)')
-         if (resp == 's') {
-            verificar()
-         } else {
-            alert('Operação finalizada.')
-         }
+         nome = prompt(`\*EXCLUIR:\nDeletar nome na lista:\n${listaAlt}`);
+         if (listaAlt.includes(nome)){
+            let index = listaAlt.indexOf(nome);
+            listaAlt.splice(index,1);
+            alert(`O nome \"${nome}\" foi deletado da lista.`);
+            alert(`Nova lista:\n${listaAlt}`);
+            tabela()
+            contOper()
          } else {
             alert(`O nome \"${nome}\" não existe na lista.`);
-            
-            let resp = prompt('Tentar outra vez? (s/n)')
-            if (resp == 's') {
-            verificar()
-             } else {
-            alert('Operação finalizada.')
+            contOper()
          }
+      }
+
+      function cadastrar() {
+         nome = prompt(`\*CADASTRO:\nDigite o nome da cidade:\n${listaAlt}`);
+         if (listaAlt.includes(nome)){
+            tabela();
+            alert(`O nome \"${nome}\" foi cadastrado.`);
+            alert(`Nova lista:\n${listaAlt}`);
+            contOper()
+         } else {
+            alert(`O nome \"${nome}\" já existe na lista.`);
+            contOper()
          }
       }
    </script>
+
 </body>
 </html>
