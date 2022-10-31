@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Javascript testes</title>
+   <style>
+      html {
+         background-color: aliceblue;
+      }
+      body {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+      }
+      h1 {
+         text-align: center;
+      }
+      button {
+         text-align: center;
+      }
+   </style>
+</head>
+<body>
+   <h1>TESTANDO</h1>
+   <button onclick="verificar()">VERIFICAR</button>
+   <script>
+      let lista = ['Murilo','Edwaldo','Gustavo','Juliano','Regina'];
+      let nome = ''
+
+      function contOper(){
+         let resp = prompt('Tentar outra vez? (s/n)')
+         if (resp == 's') {
+            verificar()
+         } else {
+            alert('Operação finalizada.')
+         }
+      }
+
+      function verificar() {
+         nome = prompt(`Deletar nome na lista: ${lista}`);
+         if (lista.includes(nome)){
+         let index = lista.indexOf(nome);
+         lista.splice(index,1);
+         alert(`O nome \"${nome}\" foi deletado da lista.`);
+         alert(`Nova lista: ${lista}`);
+
+         let resp = prompt('Tentar outra vez? (s/n)')
+         if (resp == 's') {
+            verificar()
+         } else {
+            alert('Operação finalizada.')
+         }
+         } else {
+            alert(`O nome \"${nome}\" não existe na lista.`);
+            
+            let resp = prompt('Tentar outra vez? (s/n)')
+            if (resp == 's') {
+            verificar()
+             } else {
+            alert('Operação finalizada.')
+         }
+         }
+      }
+   </script>
+</body>
+</html>
