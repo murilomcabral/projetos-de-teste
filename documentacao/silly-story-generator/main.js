@@ -7,7 +7,7 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-let storyText = `It was 94 fahrenheit outside, so ${xItem} went for a walk. When they got to ${yItem}, they stared in horror for a few moments, then ${zItem}. Bob saw the whole thing, but was not surprised — ${xItem}: weighs 300 pounds, and it was a hot day.`
+const storyText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.'
 
 let insertX = [
    'Willy the Goblin',
@@ -32,18 +32,25 @@ randomize.addEventListener('click', result);
 function result() {
 
    let newStory = storyText;
-   let xItem = randomValueFromArray(insertX)
-   let yItem = randomValueFromArray(insertY)
-   let zItem = randomValueFromArray(insertZ)
+   let xItem = randomValueFromArray(insertX);
+   let yItem = randomValueFromArray(insertY);
+   let zItem = randomValueFromArray(insertZ);
+   newStory = newStory.replaceAll(':insertx:',xItem);
+   newStory = newStory.replaceAll(':inserty:',yItem);
+   newStory = newStory.replaceAll(':insertz:',zItem);
 
   if(customName.value !== '') {
     const name = customName.value;
-    storyText.replaceAll('Bob',name);
+    newStory = newStory.replaceAll('Bob',name);
+  } else {
+    return null
   }
 
   if(document.getElementById("uk").checked) {
     const weight = Math.round(300/14) + ' stone';
     const temperature =  Math.round((94-32)*.5556) + ' centigrade';
+    newStory = newStory.replaceAll('94 fahrenheit',temperature);
+    newStory = newStory.replaceAll('300 pounds',weight);
   }
 
   story.textContent = newStory;
