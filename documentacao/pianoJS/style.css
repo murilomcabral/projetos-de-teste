@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+:root {
+   --whiteKeys: #fff;
+   --blackKeys: #000;
+   --whiteKeyHeight: 150px;
+   --blackKeyHeight: calc((var(--whiteKeyHeight) / 3) * 2);
+}
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+.main {
+   position: relative;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgb(201, 118, 118);
+}
+
+#white, #black {
+   position: absolute;
+   height: 100vh;
+   width: 100vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 3px;
+}
+
+#white {
+   top: 0px;   
+}
+
+#black {
+   bottom: calc(var(--blackKeyHeight) - (var(--whiteKeyHeight)/2));
+}
+
+div[id*=branca] {
+   background-color: var(--whiteKeys);
+   width: 30px;
+   height: var(--whiteKeyHeight);
+}
+
+div[id*=preta] {
+   background-color: var(--blackKeys);
+   width: 30px;
+   height: var(--blackKeyHeight);
+}
+
+div[id*=clear] {
+   display: hidden;
+   width: 30px;
+   height: var(--blackKeyHeight);
+}
