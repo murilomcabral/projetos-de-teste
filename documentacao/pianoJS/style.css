@@ -4,7 +4,13 @@
    --whiteKeys: #fff;
    --blackKeys: #000;
    --whiteKeyHeight: 150px;
+   --transl: translateY(-50%);
    --blackKeyHeight: calc((var(--whiteKeyHeight) / 3) * 2);
+   --corKey: 150, 100%;
+   --wKeyHover: hsla(var(--corKey), 50%, 1);
+   --bKeyHover: hsla(var(--corKey), 30%, 1);
+   --keyClick: aquamarine;
+   --keyShadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -21,7 +27,7 @@
 
 #white, #black {
    position: absolute;
-   height: 100vh;
+   height: fit;
    width: 100vw;
    display: flex;
    justify-content: center;
@@ -30,17 +36,30 @@
 }
 
 #white {
-   top: 0px;   
+   top: 50%;
+   transform: translateY(-50%);
 }
 
 #black {
-   bottom: calc(var(--blackKeyHeight) - (var(--whiteKeyHeight)/2));
+   top: calc((50%) - var(--whiteKeyHeight) / 6);
+   transform: translateY(-50%);
+   /* padding-bottom: calc(var(--whiteKeyHeight) / 3); */
 }
 
 div[id*=branca] {
    background-color: var(--whiteKeys);
    width: 30px;
    height: var(--whiteKeyHeight);
+}
+
+div[id*=branca]:hover {
+   background-color: var(--wKeyHover);
+   box-shadow: var(--keyShadow);
+}
+
+div[id*=preta]:hover {
+   background-color: var(--bKeyHover);
+   box-shadow: var(--keyShadow);
 }
 
 div[id*=preta] {
