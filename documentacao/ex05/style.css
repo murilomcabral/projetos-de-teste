@@ -5,8 +5,40 @@
    padding: 0;
 }
 
-div {
+h1 {
+   text-align: center;
+}
+
+p {
+   text-align: justify;
+   margin-top: 15px;
+}
+
+body::content {
+   opacity: 0.2;
+}
+
+header {
+   padding: 20px;
+}
+
+main {
+   padding: 20px;
+}
+
+img.lightSymbol {
    position: fixed;
+   width: 20px;
    top: 10px;
    right: 10px;
+   cursor: pointer;
+}
+
+footer, footer p {
+   position: fixed;
+   bottom: 0;
+   width: 100vw;
+   text-align: center;
+   font-weight: bold;
+   height: 20px;
 }
