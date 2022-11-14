@@ -1,20 +1,23 @@
-const tagSVG = document.querySelector('svg');
 
-const pathDoSVG = document.querySelector('svg path');
-const tamanhoTotalDoPath = pathDoSVG.getTotalLenght();
-tagSVG.style.setProperty('--tamanhoTotalDoPath',tamanhoTotalDoPath);
+let machineActive = true;
+let pwd = 'cheese';
 
-console.log(tamanhoTotalDoPath);
+let machineResult;
+let pwdResult;
 
-// window.addEventListener('scroll', function() {
-//    let navBar = document.querySelector('.notSticky');
-//    navBar.classList.toggle('sticky', window.scrollY > 0);
-// }, true);
+if (machineActive) {
+   machineResult = 'It is ON!'
+   pwd == 'cheese' ? pwdResult = 'You have successfully logged in!' : pwdResult = 'Wrong Password! Try it again.'
+} else {
+   machineResult = 'It is OFF!'
+   pwdResult = ''
+}
 
-window.addEventListener('scroll',
-function(){
-   let navBar = document.querySelector('.notSticky')
-   if (window.pageYOffset >= 200) {
-      navBar.classList.add('sticky');
-   }
-});
+// ======================================================
+// ======================================================
+
+let para1 = machineResult;
+let para2 = pwdResult;
+
+console.log(para1);
+console.log(para2);
