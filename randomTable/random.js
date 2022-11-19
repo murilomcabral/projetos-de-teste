@@ -1,17 +1,18 @@
 const table = document.querySelector('table');
-
-const arr = [];
-const min = 1;
-const max = 15;
-const rowLength = 5;
+let arr = [];
+const xA = document.querySelector('#xAxis');
+const yA = document.querySelector('#yAxis');
+let xAxis = 5;
+let yAxis = 4;
+const arrLength = xAxis * yAxis;
 
 function generate() {
 
-   for (let i = 0; arr.length < (max - min) + 1; i++) {
+   for (let i = 0; arr.length < arrLength; i++) {
 
       let rnd = Math.floor(Math.random() * 1000)
 
-      if (rnd >= min && rnd <= max && !arr.includes(rnd)) {
+      if (rnd > 0 && rnd <= arrLength && !arr.includes(rnd)) {
          arr.push(rnd);
       }
    }
@@ -22,24 +23,36 @@ function generate() {
    return
 }
 
-function update() {
+function reset() {
+   arr = [];
+   table.innerHTML = '';
+}
+
+function createTable() {
    let i = 0;
-   while (i < max / rowLength) {
+   while (i < yAxis) {
       const tableRow = document.createElement('tr')
-      for (let i = 0; i < arr.length; i++) {
+      for (let i = 0; i < xAxis; i++) {
          const tableData = document.createElement('td')
-         tableData.textContent = arr[i]
          tableRow.appendChild(tableData)
          table.appendChild(tableRow)
-         if (i == 10) {
-            const tableRow = document.createElement('tr')
-         }
       }
       i++;
    }
 }
 
-generate()
-update()
+function update() {
+   const cell = table.querySelectorAll('td')
+   let i = 0;
+   for (let cel of cell) {
+      cel.textContent = arr[i];
+      i++
+   }
+}
 
-console.log(arr)
+xA.addEventListener('change', () => {
+   reset()
+   generate();
+   createTable();
+   update();
+});
