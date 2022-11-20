@@ -22,7 +22,7 @@ td {
    font-size: 10pt;
 }
 
-.menu {
+div {
    display: flex;
    text-align: center;
    justify-content: center;
