@@ -1,10 +1,10 @@
 const table = document.querySelector('table');
+const bttGenerate = document.querySelector('#btnGenerateNew');
 let arr = [];
 const xA = document.querySelector('#xAxis');
 const yA = document.querySelector('#yAxis');
-let xAxis = 5;
-let yAxis = 4;
-const arrLength = xAxis * yAxis;
+const elementsArray = [xA,yA]
+let arrLength = '';
 
 function generate() {
 
@@ -16,16 +16,15 @@ function generate() {
          arr.push(rnd);
       }
    }
-
-   //number sort function
-   //sort(function(a, b){return a-b})
-   
    return
 }
 
 function reset() {
    arr = [];
    table.innerHTML = '';
+   xAxis = xA.value;
+   yAxis = yA.value;
+   arrLength = xAxis * yAxis;
 }
 
 function createTable() {
@@ -50,9 +49,26 @@ function update() {
    }
 }
 
-xA.addEventListener('change', () => {
+elementsArray.forEach(function(elem){
+ elem.addEventListener('change', () => {
+      reset()
+      generate();
+      createTable();
+      update();
+   });
+})
+
+bttGenerate.addEventListener('click', () => {
    reset()
    generate();
    createTable();
    update();
 });
+
+reset()
+generate();
+createTable();
+update();
+
+   //number sort function
+   //sort(function(a, b){return a-b})

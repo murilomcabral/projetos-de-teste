@@ -4,14 +4,19 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="style.css" media="all">
+   <link rel="stylesheet" href="print.css" media="print">
    <title>random table generator</title>
 </head>
 <body>
    <div class="menu">
-      <p>X Axis: <input type="number" name="xAxis" id="xAxis"></p>
-      <p>Y Axis: <input type="number" name="yAxis" id="yAxis"></p>
+      <p>X Axis: <input type="number" name="xAxis" id="xAxis" min="1" max="30" value="1"></p>
+      <p>Y Axis: <input type="number" name="yAxis" id="yAxis" min="1" max="30" value="1"></p>
    </div>
+   <div class="menu">
+      <p><input type="button" id="btnGenerateNew" value="Generate"></p>
+   </div>
+
    <div class="tableContainer">
       <table>
       </table>

@@ -1,14 +1,44 @@
 @import url(../reset.css);
 
+:root {
+   --cellSize: 8mm;
+}
+
 tr {
    position: relative;
    background-color: rgb(209, 133, 33);
 }
 
 td {
+   cursor: pointer;
    text-align: center;
-   background-color: rgb(20, 201, 44);
-   width: 10mm;
-   height: 10mm;
+   background-color: rgb(167, 167, 167);
+   color: white;
+   width: var(--cellSize);
+   height: var(--cellSize);
+   border-radius: 50%;
    vertical-align: middle;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 10pt;
+}
+
+.menu {
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   gap: 20px;
+   margin-top: 30px;
+   margin-bottom: 10px;
+}
+
+.tableContainer {
+   margin: auto;
+   margin-top: 20px;
+   width: max-content;
+}
+
+input {
+   height: 30px;
+   width: 100px;
+   padding: 5px;
 }
