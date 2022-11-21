@@ -8,11 +8,28 @@ const qtdBloco = document.querySelector('#qtdBloco');
 // const elementsArray = [ini,fim,qtdBloco]
 let arrLength = '';
 
+function reset() {
+   arrTitulo = [];
+   table.innerHTML = ''
+}
+
 function gerarTitulos() {
    for (let i = 1; i <= qtdBloco.value; i++) {
-      arrTitulo.push(i);
+      const tableData = document.createElement('td')
+      tableData.textContent = i
+      arrTitulo.push(tableData);
    }
+   const tableRow = document.createElement('tr')
+   for (let i = 0; i < qtdBloco.value; i++) {
+      tableRow.appendChild(arrTitulo[i])
+   }
+   table.appendChild(tableRow)
 }
+
+bttGenerate.addEventListener('click', () => {
+   reset();
+   gerarTitulos();
+})
 
 // function generate() {
 
