@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css" media="all">
+   <link rel="stylesheet" href="print.css" media="print">
+   <title>Table Generator</title>
+</head>
+<body>
+   <section class="menuContainer">
+      <div>
+         <h1>Generator</h1>
+      </div>
+      <div>
+         <p>Início<input type="number" name="inicio" id="inicio"></p>
+         <p>Fim<input type="number" name="fim" id="fim"></p>
+         <p>Blocos<input type="number" name="qtdBloco" id="qtdBloco"></p>
+      </div>
+      <div>
+         <p><input type="button" id="btnGenerateNew" class="btnGenerateNew" value="Generate"></p>
+      </div>
+   </section>
+
+   <div class="tableContainer">
+      <table>
+      </table>
+   </div>
+   <script src="random.js"></script>
+</body>
+</html>
