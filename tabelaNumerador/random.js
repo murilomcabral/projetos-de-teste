@@ -1,17 +1,23 @@
 const table = document.querySelector('table');
-const bttGenerate = document.querySelector('#btnGenerateNew');
 let arrTitulo = [];
 let arrNumerador = [];
-const ini = document.querySelector('#inicio');
-const fim = document.querySelector('#fim');
+let ini = document.querySelector('#inicio');
+let fim = document.querySelector('#fim');
 const qtdBloco = document.querySelector('#qtdBloco');
 const elementsArray = [ini,fim,qtdBloco]
 let arrLength = '';
 
+//===========================================================================
+//===========================================================================
+
 function reset() {
    arrTitulo = [];
-   table.innerHTML = ''
+   arrNumerador = [];
+   table.innerHTML = '';
 }
+
+//===========================================================================
+//===========================================================================
 
 function gerarTitulos() {
    for (let i = 1; i <= qtdBloco.value; i++) {
@@ -19,19 +25,44 @@ function gerarTitulos() {
       tableData.textContent = i
       arrTitulo.push(tableData);
    }
+
    const tableRow = document.createElement('tr')
+
    for (let i = 0; i < qtdBloco.value; i++) {
       tableRow.appendChild(arrTitulo[i])
    }
    table.appendChild(tableRow)
 }
 
+//===========================================================================
+//===========================================================================
+
 function gerarNumerador() {
-   arrNumerador.push(ini)
-   for (let i = 1; i < qtdBloco.value; i++) {
-      arrNumerador.push(ini+i);
+   for (let iA = 0; iA <= qtdBloco.value; iA++) {
+      const tableRow = document.createElement('tr');
+      const tableData = document.createElement('td')
+      tableData.textContent = ini.value + iA;
+      tableRow.appendChild(tableData)
+      
+
+      //todos em 1 só 'for loop'
+
+      const tableData = document.createElement('td')
+      tableData.textContent = 6;
+      arrNumerador.push(tableData);
+
+      for (let i = 0; i < qtdBloco.value; i++) {
+         tableRow.appendChild(arrNumerador[i]);
+      }
+      table.appendChild(tableRow)
+
    }
 }
+
+// fim.value = Math.ceil(fim.value / qtdBloco.value) * qtdBloco.value
+
+//===========================================================================
+//===========================================================================
 
 function update() {
    reset();
@@ -39,76 +70,10 @@ function update() {
    gerarNumerador();
 }
 
-bttGenerate.addEventListener('click', () => {
-   update();
-})
-
 elementsArray.forEach(function (ele) {
    ele.addEventListener('change', () => {
-      update();
+      if (ini.value != '' && fim.value != '' && qtdBloco.value != ''){
+         update();
+      }
    });
 });
-
-// function generate() {
-
-//    for (let i = 0; arr.length < arrLength; i++) {
-
-//       let rnd = Math.floor(Math.random() * 1000)
-
-//       if (rnd > 0 && rnd <= arrLength && !arr.includes(rnd)) {
-//          arr.push(rnd);
-//       }
-//    }
-//    return
-// }
-
-// function reset() {
-//    arr = [];
-//    table.innerHTML = '';
-//    xAxis = xA.value;
-//    yAxis = yA.value;
-//    arrLength = xAxis * yAxis;
-// }
-
-// function createTable() {
-//    let i = 0;
-//    while (i < yAxis) {
-//       const tableRow = document.createElement('tr')
-//       for (let i = 0; i < xAxis; i++) {
-//          const tableData = document.createElement('td')
-//          tableRow.appendChild(tableData)
-//          table.appendChild(tableRow)
-//       }
-//       i++;
-//    }
-// }
-
-// function update() {
-//    const cell = table.querySelectorAll('td')
-//    let i = 0;
-//    for (let cel of cell) {
-//       cel.textContent = arr[i];
-//       i++
-//    }
-// }
-
-// elementsArray.forEach(function(elem){
-//  elem.addEventListener('change', () => {
-//       reset()
-//       generate();
-//       createTable();
-//       update();
-//    });
-// });
-
-// bttGenerate.addEventListener('click', () => {
-//    reset()
-//    generate();
-//    createTable();
-//    update();
-// });
-
-// reset()
-// generate();
-// createTable();
-// update();
