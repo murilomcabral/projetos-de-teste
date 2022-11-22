@@ -5,7 +5,7 @@ let arrNumerador = [];
 const ini = document.querySelector('#inicio');
 const fim = document.querySelector('#fim');
 const qtdBloco = document.querySelector('#qtdBloco');
-// const elementsArray = [ini,fim,qtdBloco]
+const elementsArray = [ini,fim,qtdBloco]
 let arrLength = '';
 
 function reset() {
@@ -26,10 +26,28 @@ function gerarTitulos() {
    table.appendChild(tableRow)
 }
 
-bttGenerate.addEventListener('click', () => {
+function gerarNumerador() {
+   arrNumerador.push(ini)
+   for (let i = 1; i < qtdBloco.value; i++) {
+      arrNumerador.push(ini+i);
+   }
+}
+
+function update() {
    reset();
    gerarTitulos();
+   gerarNumerador();
+}
+
+bttGenerate.addEventListener('click', () => {
+   update();
 })
+
+elementsArray.forEach(function (ele) {
+   ele.addEventListener('change', () => {
+      update();
+   });
+});
 
 // function generate() {
 
@@ -81,7 +99,7 @@ bttGenerate.addEventListener('click', () => {
 //       createTable();
 //       update();
 //    });
-// })
+// });
 
 // bttGenerate.addEventListener('click', () => {
 //    reset()
