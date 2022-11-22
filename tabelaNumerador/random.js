@@ -33,23 +33,20 @@ function gerarTitulos() {
    }
    table.appendChild(tableRow)
 }
-
+ 
 //=================================================================
 //=================================================================
 
 function gerarNumerador() {
    const razao = (fim.value - ini.value + 1) / qtdBloco.value;
    for (let i = 0; i <= qtdBloco.value; i++) {
-      const tableData = document.createElement('td')
-      tableData.textContent = ini.value + i
+      const tableData = document.createElement('td');
+      tableData.innerText = ini.value + i
       arrNumerador.push(tableData)
-      for (let i2 = 0; i2 < qtdBloco.value; i2++){
-         const tableData = document.createElement('td')
-         tableData.textContent = arrNumerador[i2] + razao;
-         arrNumerador.push(tableData);
-      }
-      const tableRow = document.createElement('tr');
-      tableRow.innerHTML = arrNumerador;
+   }
+   const tableRow = document.createElement('tr');
+   for (let i2 = 0; i2 < qtdBloco.value; i2++) {
+      tableRow.appendChild = `${arrNumerador[i2]}`;
    }
    table.appendChild(tableRow);
 }
