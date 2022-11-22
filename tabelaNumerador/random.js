@@ -7,8 +7,8 @@ const qtdBloco = document.querySelector('#qtdBloco');
 const elementsArray = [ini,fim,qtdBloco]
 let arrLength = '';
 
-//===========================================================================
-//===========================================================================
+//=================================================================
+//=================================================================
 
 function reset() {
    arrTitulo = [];
@@ -16,8 +16,8 @@ function reset() {
    table.innerHTML = '';
 }
 
-//===========================================================================
-//===========================================================================
+//=================================================================
+//=================================================================
 
 function gerarTitulos() {
    for (let i = 1; i <= qtdBloco.value; i++) {
@@ -34,35 +34,30 @@ function gerarTitulos() {
    table.appendChild(tableRow)
 }
 
-//===========================================================================
-//===========================================================================
+//=================================================================
+//=================================================================
 
 function gerarNumerador() {
-   for (let iA = 0; iA <= qtdBloco.value; iA++) {
-      const tableRow = document.createElement('tr');
+   const razao = (fim.value - ini.value + 1) / qtdBloco.value;
+   for (let i = 0; i <= qtdBloco.value; i++) {
       const tableData = document.createElement('td')
-      tableData.textContent = ini.value + iA;
-      tableRow.appendChild(tableData)
-      
-
-      //todos em 1 só 'for loop'
-
-      const tableData = document.createElement('td')
-      tableData.textContent = 6;
-      arrNumerador.push(tableData);
-
-      for (let i = 0; i < qtdBloco.value; i++) {
-         tableRow.appendChild(arrNumerador[i]);
+      tableData.textContent = ini.value + i
+      arrNumerador.push(tableData)
+      for (let i2 = 0; i2 < qtdBloco.value; i2++){
+         const tableData = document.createElement('td')
+         tableData.textContent = arrNumerador[i2] + razao;
+         arrNumerador.push(tableData);
       }
-      table.appendChild(tableRow)
-
+      const tableRow = document.createElement('tr');
+      tableRow.innerHTML = arrNumerador;
    }
+   table.appendChild(tableRow);
 }
 
 // fim.value = Math.ceil(fim.value / qtdBloco.value) * qtdBloco.value
 
-//===========================================================================
-//===========================================================================
+//=================================================================
+//=================================================================
 
 function update() {
    reset();
