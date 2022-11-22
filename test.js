@@ -1,6 +1,6 @@
 const arr = [];
 const min = 1;
-const max = 600;
+const max = 300;
 
 function generate() {
 
@@ -12,9 +12,6 @@ function generate() {
          arr.push(rnd);
       }
    }
-
-   //number sort function
-   //sort(function(a, b){return a-b})
    
    return
 }
