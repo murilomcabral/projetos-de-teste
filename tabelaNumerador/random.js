@@ -1,67 +1,64 @@
 const table = document.querySelector('table');
-let arrTitulo = [];
-let arrNumerador = [];
+let dataArray = [];
 let ini = document.querySelector('#inicio');
 let fim = document.querySelector('#fim');
 const qtdBloco = document.querySelector('#qtdBloco');
 const elementsArray = [ini,fim,qtdBloco]
-let arrLength = '';
-
 //=================================================================
-//=================================================================
-
 function reset() {
-   arrTitulo = [];
-   arrNumerador = [];
+   dataArray = [];
+   const cellArray = [];
    table.innerHTML = '';
 }
-
 //=================================================================
-//=================================================================
-
-function gerarTitulos() {
-   for (let i = 1; i <= qtdBloco.value; i++) {
-      const tableData = document.createElement('td')
-      tableData.textContent = i
-      arrTitulo.push(tableData);
+function createTable() {
+   const numLinhas = ((fim.value - ini.value + 1) / qtdBloco.value) + 1;
+   const numColunas = qtdBloco.value;
+   let i = 0
+   while (i < numLinhas) {
+      const tableRow = document.createElement('tr');
+      for (let i = 0; i < numColunas; i++ ) {
+         const tableData = document.createElement('td');
+         tableRow.appendChild(tableData);
+         table.appendChild(tableRow);
+      }
+      i++;
    }
-
-   const tableRow = document.createElement('tr')
-
-   for (let i = 0; i < qtdBloco.value; i++) {
-      tableRow.appendChild(arrTitulo[i])
-   }
-   table.appendChild(tableRow)
+   console.log(dataArray)
 }
- 
 //=================================================================
-//=================================================================
-
-function gerarNumerador() {
-   const razao = (fim.value - ini.value + 1) / qtdBloco.value;
-   for (let i = 0; i <= qtdBloco.value; i++) {
-      const tableData = document.createElement('td');
-      tableData.innerText = ini.value + i
-      arrNumerador.push(tableData)
+function generateArray() {
+   const numLinhas = (fim.value - ini.value + 1) / qtdBloco.value;
+   const numColunas = qtdBloco.value;
+   const totCell = numLinhas * numColunas + qtdBloco.value;
+   let i = 0;
+   while (i < totCell) {
+      if (i < qtdBloco.value) {
+         dataArray.push(i+1);
+      } else {
+         dataArray.push(0);
+      }
+      i++
    }
-   const tableRow = document.createElement('tr');
-   for (let i2 = 0; i2 < qtdBloco.value; i2++) {
-      tableRow.appendChild = `${arrNumerador[i2]}`;
-   }
-   table.appendChild(tableRow);
+   console.log(dataArray)
 }
-
-// fim.value = Math.ceil(fim.value / qtdBloco.value) * qtdBloco.value
-
 //=================================================================
+// function addData(){
+//    const cellArray = document.querySelectorAll('td');
+//    let i = 0;
+//    cellArray.forEach(ele => {
+//          ele.textContent = dataArray[i];
+//          i++;      
+//       });
+//    }
 //=================================================================
-
 function update() {
    reset();
-   gerarTitulos();
-   gerarNumerador();
+   createTable();
+   generateArray();
+   // addData();
 }
-
+//=================================================================
 elementsArray.forEach(function (ele) {
    ele.addEventListener('change', () => {
       if (ini.value != '' && fim.value != '' && qtdBloco.value != ''){
