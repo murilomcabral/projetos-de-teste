@@ -9,6 +9,7 @@ function reset() {
    dataArray = [];
    const cellArray = [];
    table.innerHTML = '';
+   console.clear()
 }
 //=================================================================
 function createTable() {
@@ -24,24 +25,37 @@ function createTable() {
       }
       i++;
    }
-   console.log(dataArray)
 }
 //=================================================================
-function generateArray() {
-   const numLinhas = (fim.value - ini.value + 1) / qtdBloco.value;
-   const numColunas = qtdBloco.value;
-   const totCell = numLinhas * numColunas + qtdBloco.value;
+function generateTitles() {
+   // const numLinhas = Math.ceil(((fim.value - ini.value) + 1) / qtdBloco.value) + 1 ;
+   // const numColunas = qtdBloco.value;
+   const totCell = document.querySelectorAll('td').length;
    let i = 0;
    while (i < totCell) {
       if (i < qtdBloco.value) {
          dataArray.push(i+1);
-      } else {
-         dataArray.push(0);
       }
       i++
    }
-   console.log(dataArray)
 }
+//=================================================================
+function generateNum() {
+   // const numLinhas = Math.ceil(((fim.value - ini.value) + 1) / qtdBloco.value) + 1 ;
+   // const numColunas = qtdBloco.value;
+   const totCell = document.querySelectorAll('td').length;
+   let i = 0;
+   while (i < totCell - qtdBloco.value) {
+         dataArray.push(0);
+         i++
+      }
+   console.log(`total celulas: ${totCell}`)
+   console.log('qtdBloco: ' + qtdBloco.value)
+}
+   // console.log('linhas: ' + numLinhas)
+   // console.log('colunas: ' + numColunas)
+   // console.log(`total celulas: ${totCell - 4}`)
+   // console.log(dataArray)
 //=================================================================
 // function addData(){
 //    const cellArray = document.querySelectorAll('td');
@@ -55,8 +69,10 @@ function generateArray() {
 function update() {
    reset();
    createTable();
-   generateArray();
+   generateTitles();
+   generateNum();
    // addData();
+   console.log(dataArray)
 }
 //=================================================================
 elementsArray.forEach(function (ele) {
