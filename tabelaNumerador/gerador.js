@@ -41,37 +41,44 @@ function generateTitles() {
 }
 //=================================================================
 function generateNum() {
-   // const numLinhas = Math.ceil(((fim.value - ini.value) + 1) / qtdBloco.value) + 1 ;
-   // const numColunas = qtdBloco.value;
+
    const totCell = document.querySelectorAll('td').length;
-   let i = 0;
-   while (i < totCell - qtdBloco.value) {
-         dataArray.push(0);
-         i++
+   const colSize = (totCell - qtdBloco.value) / qtdBloco.value;
+   dataArray.push(ini.value);
+   let prevIndex = 0;
+   let i = Number(qtdBloco.value) + 1;
+   console.log(colSize)
+   while (i <= totCell) {
+      dataArray.push()
+      if (i % qtdBloco.value != 0) {
+         dataArray.push(Number(dataArray[i-1]) + colSize);
+      } else {
+         prevIndex = qtdBloco.value
+         dataArray.push(Number(dataArray[i-qtdBloco.value]) + 1);
+         prevIndex++
       }
+      i++
+   }
    console.log(`total celulas: ${totCell}`)
    console.log('qtdBloco: ' + qtdBloco.value)
 }
-   // console.log('linhas: ' + numLinhas)
-   // console.log('colunas: ' + numColunas)
-   // console.log(`total celulas: ${totCell - 4}`)
-   // console.log(dataArray)
+
 //=================================================================
-// function addData(){
-//    const cellArray = document.querySelectorAll('td');
-//    let i = 0;
-//    cellArray.forEach(ele => {
-//          ele.textContent = dataArray[i];
-//          i++;      
-//       });
-//    }
+function addData(){
+   const cellArray = document.querySelectorAll('td');
+   let i = 0;
+   cellArray.forEach(ele => {
+         ele.textContent = dataArray[i];
+         i++;      
+      });
+   }
 //=================================================================
 function update() {
    reset();
    createTable();
    generateTitles();
    generateNum();
-   // addData();
+   addData();
    console.log(dataArray)
 }
 //=================================================================
