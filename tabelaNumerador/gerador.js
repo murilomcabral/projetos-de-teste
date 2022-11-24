@@ -28,8 +28,6 @@ function createTable() {
 }
 //=================================================================
 function generateTitles() {
-   // const numLinhas = Math.ceil(((fim.value - ini.value) + 1) / qtdBloco.value) + 1 ;
-   // const numColunas = qtdBloco.value;
    const totCell = document.querySelectorAll('td').length;
    let i = 0;
    while (i < totCell) {
@@ -41,13 +39,11 @@ function generateTitles() {
 }
 //=================================================================
 function generateNum() {
-
    const totCell = document.querySelectorAll('td').length;
    const colSize = (totCell - qtdBloco.value) / qtdBloco.value;
-   dataArray.push(ini.value);
+   dataArray.push(Number(ini.value));
    let prevIndex = 0;
    let i = Number(qtdBloco.value) + 1;
-   console.log(colSize)
    while (i <= totCell) {
       dataArray.push()
       if (i % qtdBloco.value != 0) {
@@ -59,12 +55,9 @@ function generateNum() {
       }
       i++
    }
-   console.log(`total celulas: ${totCell}`)
-   console.log('qtdBloco: ' + qtdBloco.value)
 }
-
 //=================================================================
-function addData(){
+function addData() {
    const cellArray = document.querySelectorAll('td');
    let i = 0;
    cellArray.forEach(ele => {
@@ -80,6 +73,11 @@ function update() {
    generateNum();
    addData();
    console.log(dataArray)
+
+   // if (fim.value != dataArray[dataArray.length-2]){
+   //    fim.value = `${dataArray[dataArray.length-2]}`
+   // }
+   // Me falta conhecimento para adicionar essa funcionalidade da forma que gostaria. 24/11/2022.
 }
 //=================================================================
 elementsArray.forEach(function (ele) {
