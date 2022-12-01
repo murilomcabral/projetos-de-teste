@@ -105,9 +105,9 @@ div:has(div:first-child):hover {
    transition: all ease-in-out 250ms;
 }
 
-div:last-child {
-   /* grid-column: 2 / span 2; */
-}
+/* div:last-child {
+   grid-column: 2 / span 2;
+} */
 
 p:nth-child(2) {
    text-align: center;
