@@ -98,7 +98,7 @@ div:has(div:first-child) {
    transition: all ease-in-out 300ms;
 }
 
-div:has(div:first-child):hover {
+.cardHover:hover {
    background-position-y: 0%;
    transition: all ease-in-out 200ms;
 }
