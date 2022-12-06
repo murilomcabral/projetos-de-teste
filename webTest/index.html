@@ -13,9 +13,9 @@
   </head>
 <body>
 
-  <input class="rgbInput redInput" type="number" min="0" max="255">
-  <input class="rgbInput greenInput" type="number" min="0" max="255">
-  <input class="rgbInput blueInput" type="number" min="0" max="255">
+  <p>R<input class="rgbInput redInput" type="number" min="0" max="255" value="255"></p>
+  <p>G<input class="rgbInput greenInput" type="number" min="0" max="255" value="255"></p>
+  <p>B<input class="rgbInput blueInput" type="number" min="0" max="255" value="255"></p>
 
   <script>
 
@@ -29,7 +29,7 @@
 
    function update() {
       // const rgbBg = `rgb(${redInput}, ${greenInput}, ${blueInput})';
-      document.body.style.backgroundColor = `rgb(${redInput}, ${greenInput}, ${blueInput})`;
+      document.body.style.backgroundColor = `rgb(${redInput.value}, ${greenInput.value}, ${blueInput.value})`;
    }
 
   </script>
