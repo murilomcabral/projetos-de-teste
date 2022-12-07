@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Color</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+  </style>
+  </head>
+<body>
+
+  <p>R<input class="rgbInput redInput" type="number" min="0" max="255" value="255"></p>
+  <p>G<input class="rgbInput greenInput" type="number" min="0" max="255" value="255"></p>
+  <p>B<input class="rgbInput blueInput" type="number" min="0" max="255" value="255"></p>
+
+  <script>
+
+   const rgbInput = document.querySelectorAll('.rgbInput');
+   const redInput = document.querySelector('.redInput');
+   const greenInput = document.querySelector('.greenInput');
+   const blueInput = document.querySelector('.blueInput');
+
+   
+   rgbInput.forEach((input) => input.addEventListener('change', update))
+
+   function update() {
+      if (redInput.value > 255) {
+         redInput.value = 255;
+      } else if (redInput.value < 0) {
+         redInput.value = 0;
+      }
+      if (greenInput.value > 255) {
+         greenInput.value = 255;
+      } else if (greenInput.value < 0) {
+         greenInput.value = 0;
+      }
+      if (blueInput.value > 255) {
+         blueInput.value = 255;
+      } else if (blueInput.value < 0) {
+         blueInput.value = 0;
+      }
+      document.body.style.backgroundColor = `rgb(${redInput.value}, ${greenInput.value}, ${blueInput.value})`;
+   }
+
+  </script>
+</body>
+</html>

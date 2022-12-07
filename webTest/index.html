@@ -3,36 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Color</title>
-  <style>
-    input {
-      font-size: 2em;
-      margin: 10px 1px 0;
-      border: 1px solid black;
-      border-radius: 10px;
-    }
-  </style>
+    <title>Random color example — event handler attribute</title>
+    <style>
+      button {
+        margin: 10px
+      };
+    </style>
   </head>
-<body>
+  <body>
+    <button>Change color</button>
+    <script>
+      const btn = document.querySelector('button');
 
-  <p>R<input class="rgbInput redInput" type="number" min="0" max="255" value="255"></p>
-  <p>G<input class="rgbInput greenInput" type="number" min="0" max="255" value="255"></p>
-  <p>B<input class="rgbInput blueInput" type="number" min="0" max="255" value="255"></p>
+      function random(number) {
+        return Math.floor(Math.random() * (number+1));
+      }
 
-  <script>
-
-   const rgbInput = document.querySelectorAll('.rgbInput');
-   const redInput = document.querySelector('.redInput');
-   const greenInput = document.querySelector('.greenInput');
-   const blueInput = document.querySelector('.blueInput');
-
-   
-   rgbInput.forEach((input) => input.addEventListener('change', update))
-
-   function update() {
-      document.body.style.backgroundColor = `rgb(${redInput.value}, ${greenInput.value}, ${blueInput.value})`;
-   }
-
-  </script>
-</body>
+      btn.addEventListener('click', () => {
+        const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+        
+      });
+      
+    </script>
+  </body>
 </html>
