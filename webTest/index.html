@@ -8,6 +8,8 @@
     input {
       font-size: 2em;
       margin: 10px 1px 0;
+      border: 1px solid black;
+      border-radius: 10px;
     }
   </style>
   </head>
@@ -28,7 +30,6 @@
    rgbInput.forEach((input) => input.addEventListener('change', update))
 
    function update() {
-      // const rgbBg = `rgb(${redInput}, ${greenInput}, ${blueInput})';
       document.body.style.backgroundColor = `rgb(${redInput.value}, ${greenInput.value}, ${blueInput.value})`;
    }
 
