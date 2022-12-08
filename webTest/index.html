@@ -13,9 +13,11 @@
   <body>
     <button>Change color</button>
     <p class="mousePos"></p>
+    <p class="windowInnerSize"></p>
     <script>
       const btn = document.querySelector('button');
       const disp = document.querySelector('.mousePos')
+      const disp2 = document.querySelector('.windowInnerSize')
 
       function random(number) {
         return Math.floor(Math.random() * (number+1));
@@ -28,11 +30,18 @@
       });
 
       //=======================================================
+
+      window.addEventListener('resize', () => {disp2.textContent = `Window size: ${innerWidth} x ${innerHeight}`;});
       
       window.addEventListener('mousemove', () => {
-        disp.textContent = `${event.clientX} x ${event.clientY} \(${innerWidth} x ${innerHeight}\)`;
-        const rndCol = `hsl(${event.clientX / innerWidth * 255}, 100%, ${(innerHeight / 100) * (innerHeight / 100)})`;
+        disp.textContent = `Cursor coordinates: X: ${event.clientX} vs Y: ${event.clientY}`;
+        disp2.textContent = `Window size: ${innerWidth} x ${innerHeight}`;
+        const rndCol = `hsl(${(event.clientX) / (innerWidth / 255)}, ${(event.clientY) / (innerHeight / 100)}%, ${50}%)`;
         document.body.style.backgroundColor = rndCol;
+      });
+
+      window.addEventListener('click', () => {
+        document.execCommand('copy')
       });
 
     </script>
