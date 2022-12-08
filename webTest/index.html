@@ -13,6 +13,18 @@
          box-sizing: border-box;
       }
 
+      @media screen and (max-width: 858px) {
+         .container {
+            flex-direction: column;
+         }  
+      }
+
+      @media screen and (max-width: 400px) {
+         .container {
+            font-size: 4.3vw;
+         }  
+      }
+
       body {
          width: 100vw;
          height: 100vh;
@@ -33,7 +45,7 @@
         text-align: center;
         border: 2px solid hsla(0, 0%, 0%, 0.1);
         width: max-content;
-        align-self: center;
+        align-self: left;
       }
       
       input {
@@ -58,10 +70,11 @@
   <body>
     <div class="container">
        <!-- <button>Change color</button> -->
-       <p><input type="number" name="saturation" class="saturation" min="0" max="100" value="100"></p>
+       <p>Lightness: <input type="number" name="saturation" class="saturation" min="0" max="100" value="100"></p>
        <p class="windowInnerSize"></p>
        <p class="mousePos"></p>
-       <button class="hideAll" title="Hide info"></button>
+       <p class="rgbCode"></p>
+       <!-- <button class="hideAll" title="Hide info"></button> -->
     </div>
     <script>
 
@@ -77,21 +90,26 @@
         
       // });
 
-      const disp2 = document.querySelector('.windowInnerSize');
-      const disp = document.querySelector('.mousePos');
       const sat = document.querySelector('.saturation');
+      const disp = document.querySelector('.mousePos');
+      const disp2 = document.querySelector('.windowInnerSize');
+      const rgbCode = document.querySelector('.rgbCode')
       const info = document.querySelectorAll('p');
       const btnHide = document.querySelector('.hideAll');
 
-      function updateWindowSize() {
-         disp2.textContent = `Viewer size: ${innerWidth} x ${innerHeight}`;
-      }
-
       let test = true;
+      
+            function updateWindowSize() {
+               disp2.textContent = `Viewer size: ${innerWidth} x ${innerHeight}`;
+            }
 
       function updateInfo() {
          updateWindowSize();
+         const hueLevel = (event.clientX) / (innerWidth / 360);
+         const saturationLevel = sat.value;
+         const lightnessLevel = (event.clientY) / (innerHeight / 100);
          disp.textContent = `Cursor coordinates: X: ${event.clientX} vs Y: ${event.clientY}`;
+         rgbCode.textContent = `Hue: ${hueLevel.toFixed()} | Saturation: ${saturationLevel}%, | Lightness: ${lightnessLevel.toFixed()}%`;
          const rndCol = `hsl(${(event.clientX) / (innerWidth / 360)}, ${sat.value}%, ${(event.clientY) / (innerHeight / 100)}%)`;
          document.body.style.backgroundColor = rndCol;
       }
@@ -106,8 +124,8 @@
          }
       }
 
-      window.addEventListener('load', updateInfo);
       window.addEventListener('resize', updateWindowSize);
+      window.addEventListener('load', updateInfo);
       window.document.body.addEventListener('click', cursorCoordinate);
       
       // function toggleInfo() {
