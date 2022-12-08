@@ -5,44 +5,134 @@
     <meta name="viewport" content="width=device-width">
     <title>Random color example — event handler attribute</title>
     <style>
-      button {
-        margin: 10px
-      };
+
+      * {
+         margin: 0;
+         padding: 0;
+         user-select: none;
+         box-sizing: border-box;
+      }
+
+      body {
+         width: 100vw;
+         height: 100vh;
+         padding: 5px;
+      }
+
+      .container {
+         display: flex;
+         gap: 5px;
+      }
+
+      button, p, input {
+        padding: 3px;
+        background-color: hsla(0, 0%, 100%, 0.5);
+        color: black;
+        border-radius: 5px;
+        border: none;
+        text-align: center;
+        border: 2px solid hsla(0, 0%, 0%, 0.1);
+        width: max-content;
+        align-self: center;
+      }
+      
+      input {
+         width: auto;
+      }
+
+
+      .saturation {
+         width: 70px;
+      }
+
+      .hideAll {
+         width: 20px;
+         height: 20px;
+         position: absolute;
+         top: 5px;
+         right: 5px;
+      }
+
     </style>
   </head>
   <body>
-    <button>Change color</button>
-    <p class="mousePos"></p>
-    <p class="windowInnerSize"></p>
+    <div class="container">
+       <!-- <button>Change color</button> -->
+       <p><input type="number" name="saturation" class="saturation" min="0" max="100" value="100"></p>
+       <p class="windowInnerSize"></p>
+       <p class="mousePos"></p>
+       <button class="hideAll" title="Hide info"></button>
+    </div>
     <script>
-      const btn = document.querySelector('button');
-      const disp = document.querySelector('.mousePos')
-      const disp2 = document.querySelector('.windowInnerSize')
 
-      function random(number) {
-        return Math.floor(Math.random() * (number+1));
+      // const btn = document.querySelector('button');
+
+      // function random(number) {
+      //   return Math.floor(Math.random() * (number+1));
+      // }
+
+      // btn.addEventListener('click', () => {
+      //   const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+      //   document.body.style.backgroundColor = rndCol;
+        
+      // });
+
+      const disp2 = document.querySelector('.windowInnerSize');
+      const disp = document.querySelector('.mousePos');
+      const sat = document.querySelector('.saturation');
+      const info = document.querySelectorAll('p');
+      const btnHide = document.querySelector('.hideAll');
+
+      function updateWindowSize() {
+         disp2.textContent = `Viewer size: ${innerWidth} x ${innerHeight}`;
       }
 
-      btn.addEventListener('click', () => {
-        const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-        document.body.style.backgroundColor = rndCol;
-        
-      });
+      let test = true;
 
-      //=======================================================
+      function updateInfo() {
+         updateWindowSize();
+         disp.textContent = `Cursor coordinates: X: ${event.clientX} vs Y: ${event.clientY}`;
+         const rndCol = `hsl(${(event.clientX) / (innerWidth / 360)}, ${sat.value}%, ${(event.clientY) / (innerHeight / 100)}%)`;
+         document.body.style.backgroundColor = rndCol;
+      }
 
-      window.addEventListener('resize', () => {disp2.textContent = `Window size: ${innerWidth} x ${innerHeight}`;});
+      function cursorCoordinate() {
+         if (test === true) {
+            window.addEventListener('mousemove', updateInfo);
+            test = false;
+         } else {
+            window.removeEventListener('mousemove', updateInfo);
+            test = true;
+         }
+      }
+
+      window.addEventListener('load', updateInfo);
+      window.addEventListener('resize', updateWindowSize);
+      window.document.body.addEventListener('click', cursorCoordinate);
       
-      window.addEventListener('mousemove', () => {
-        disp.textContent = `Cursor coordinates: X: ${event.clientX} vs Y: ${event.clientY}`;
-        disp2.textContent = `Window size: ${innerWidth} x ${innerHeight}`;
-        const rndCol = `hsl(${(event.clientX) / (innerWidth / 255)}, ${(event.clientY) / (innerHeight / 100)}%, ${50}%)`;
-        document.body.style.backgroundColor = rndCol;
-      });
+      // function toggleInfo() {
+      //    info.forEach(addStyle(item))
+      // }
 
-      window.addEventListener('click', () => {
-        document.execCommand('copy')
-      });
+      // function addStyle(item) {
+      //    if (item.style.display != 'none') {
+      //       item.style.display = 'none'
+      //    } else {
+      //       item.style.display = 'flex'}
+      // }
+      
+      // btnHide.addEventListener('click', toggleInfo)
+      
+      // window.addEventListener('mousemove', () => {
+      //    updateWindowSize()
+      //    disp.textContent = `Cursor coordinates: X: ${event.clientX} vs Y: ${event.clientY}`;
+      //    const rndCol = `hsl(${(event.clientX) / (innerWidth / 360)}, ${50}%, ${(event.clientY) / (innerHeight / 100)}%)`;
+      //    document.body.style.backgroundColor = rndCol;
+      // });
+
+      // window.addEventListener('click', () => {
+      //    document.execCommand('copy')
+      // });
 
     </script>
   </body>
