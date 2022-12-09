@@ -69,8 +69,7 @@
   </head>
   <body>
     <div class="container">
-       <!-- <button>Change color</button> -->
-       <p>Lightness: <input type="number" name="saturation" class="saturation" min="0" max="100" value="100"></p>
+       <p>Saturation: <input type="number" name="saturation" class="saturation" min="0" max="100" value="100"></p>
        <p class="windowInnerSize"></p>
        <p class="mousePos"></p>
        <p class="rgbCode"></p>
@@ -78,43 +77,55 @@
     </div>
     <script>
 
-      // const btn = document.querySelector('button');
-
-      // function random(number) {
-      //   return Math.floor(Math.random() * (number+1));
-      // }
-
-      // btn.addEventListener('click', () => {
-      //   const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-      //   document.body.style.backgroundColor = rndCol;
-        
-      // });
-
       const sat = document.querySelector('.saturation');
       const disp = document.querySelector('.mousePos');
       const disp2 = document.querySelector('.windowInnerSize');
       const rgbCode = document.querySelector('.rgbCode')
       const info = document.querySelectorAll('p');
       const btnHide = document.querySelector('.hideAll');
+      let saturationLevel = sat.value;
+      let xA
+      let yA
 
       let test = true;
       
-            function updateWindowSize() {
-               disp2.textContent = `Viewer size: ${innerWidth} x ${innerHeight}`;
-            }
+      function cursorCoodenates() {
+         xA = event.clientX;
+         yA = event.clientY;
+         console.log(xA + ' vs ' + yA)
+      }
+
+      function updateWindowSize() {
+         disp2.textContent = `Viewer: ${innerWidth} x ${innerHeight}`;
+      }
+
+      // function updateHSL() {
+
+      // }
 
       function updateInfo() {
          updateWindowSize();
          const hueLevel = (event.clientX) / (innerWidth / 360);
-         const saturationLevel = sat.value;
          const lightnessLevel = (event.clientY) / (innerHeight / 100);
-         disp.textContent = `Cursor coordinates: X: ${event.clientX} vs Y: ${event.clientY}`;
-         rgbCode.textContent = `Hue: ${hueLevel.toFixed()} | Saturation: ${saturationLevel}%, | Lightness: ${lightnessLevel.toFixed()}%`;
+         disp.textContent = `Cursor: X: ${event.clientX} vs Y: ${event.clientY}`;
+         rgbCode.textContent = `Hue: ${hueLevel.toFixed()} | Saturation: ${sat.value}%, | Lightness: ${lightnessLevel.toFixed()}%`;
          const rndCol = `hsl(${(event.clientX) / (innerWidth / 360)}, ${sat.value}%, ${(event.clientY) / (innerHeight / 100)}%)`;
          document.body.style.backgroundColor = rndCol;
       }
 
-      function cursorCoordinate() {
+      function satChange(event) {
+         saturationLevel.change = updateInfo();
+
+         if (event.deltaY > 0 && sat.value > 1) {
+            saturationLevel--
+            return sat.value = saturationLevel;
+         } else if (event.deltaY < 100 && sat.value < 100) {
+            saturationLevel++
+            return sat.value = saturationLevel;
+         }
+      }
+
+      function stopWheel() {
          if (test === true) {
             window.addEventListener('mousemove', updateInfo);
             test = false;
@@ -124,33 +135,11 @@
          }
       }
 
+      window.document.addEventListener('load', updateInfo);
       window.addEventListener('resize', updateWindowSize);
-      window.addEventListener('load', updateInfo);
-      window.document.body.addEventListener('click', cursorCoordinate);
-      
-      // function toggleInfo() {
-      //    info.forEach(addStyle(item))
-      // }
+      window.document.addEventListener('wheel', satChange);
+      window.document.body.addEventListener('click', stopWheel);
 
-      // function addStyle(item) {
-      //    if (item.style.display != 'none') {
-      //       item.style.display = 'none'
-      //    } else {
-      //       item.style.display = 'flex'}
-      // }
-      
-      // btnHide.addEventListener('click', toggleInfo)
-      
-      // window.addEventListener('mousemove', () => {
-      //    updateWindowSize()
-      //    disp.textContent = `Cursor coordinates: X: ${event.clientX} vs Y: ${event.clientY}`;
-      //    const rndCol = `hsl(${(event.clientX) / (innerWidth / 360)}, ${50}%, ${(event.clientY) / (innerHeight / 100)}%)`;
-      //    document.body.style.backgroundColor = rndCol;
-      // });
-
-      // window.addEventListener('click', () => {
-      //    document.execCommand('copy')
-      // });
 
     </script>
   </body>
