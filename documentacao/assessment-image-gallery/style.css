@@ -41,3 +41,33 @@ button {
   float: left;
   cursor: pointer;
 }
+
+.material-symbols-outlined {
+   font-variation-settings:
+   'FILL' 0,
+   'wght' 600,
+   'GRAD' 0,
+   'opsz' 48,
+}
+
+ .arrow-left, .arrow-right {
+   position: absolute;
+   top: 50%;
+
+   cursor: pointer;
+   z-index: 3;
+
+   color: rgba(0 0 0 / .3);
+ }
+
+ .arrow-left:hover, .arrow-right:hover {
+   color: rgba(0 0 0 / 1);
+ }
+
+ .arrow-left {
+   left: 10px;
+ }
+
+ .arrow-right {
+   right: 10px;
+ }

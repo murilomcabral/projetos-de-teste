@@ -19,7 +19,6 @@ for (let i = 0; i < imgFileName.length; i++) {
 }
 
 /* Wiring up the Darken/Lighten button */
-
 function darkenLighten() {
    if (btn.innerText === 'Darken') {
       btn.innerText = 'Lighten';
@@ -31,7 +30,13 @@ function darkenLighten() {
 }
 
 btn.addEventListener('click', darkenLighten)
+
+/* Changing displayed image */
+
+/* thumbBar */
 thumbBar.addEventListener('click', function displayImage(event) {
    displayedImage.setAttribute('src',event.target.getAttribute('src'))
    displayedImage.setAttribute('alt',event.target.getAttribute('alt'))
 })
+
+/* arrowNavigation */
