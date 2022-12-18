@@ -3,73 +3,47 @@
 :root {
    --whiteKeys: #fff;
    --blackKeys: #000;
-   --whiteKeyHeight: 150px;
-   --transl: translateY(-50%);
-   --blackKeyHeight: calc((var(--whiteKeyHeight) / 3) * 2);
-   --corKey: 150, 100%;
-   --wKeyHover: hsla(var(--corKey), 50%, 1);
-   --bKeyHover: hsla(var(--corKey), 30%, 1);
-   --keyClick: aquamarine;
-   --keyShadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 * {
    margin: 0;
    padding: 0;
+   box-sizing: border-box;
 }
 
-.main {
-   position: relative;
-   width: 100vw;
-   height: 100vh;
-   background-color: rgb(201, 118, 118);
+body {
+  background-color: antiquewhite;
 }
 
-#white, #black {
-   position: absolute;
-   height: fit;
-   width: 100vw;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 3px;
+.white {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 200px;
+  background-color: white;
+  display: flex;
 }
 
-#white {
-   top: 50%;
-   transform: translateY(-50%);
+.white>div:not(div:last-child){
+  flex: 1;
+  border: 1px solid black;
+  background-color: aqua;
 }
 
-#black {
-   top: calc((50%) - var(--whiteKeyHeight) / 6);
-   transform: translateY(-50%);
-   /* padding-bottom: calc(var(--whiteKeyHeight) / 3); */
+.white > div:last-child {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  border: 1px solid black;
+  width: 100%;
+  height: 70%;
+  background-color: rgb(255, 210, 127);
 }
 
-div[id*=branca] {
-   background-color: var(--whiteKeys);
-   width: 30px;
-   height: var(--whiteKeyHeight);
-}
-
-div[id*=branca]:hover {
-   background-color: var(--wKeyHover);
-   box-shadow: var(--keyShadow);
-}
-
-div[id*=preta]:hover {
-   background-color: var(--bKeyHover);
-   box-shadow: var(--keyShadow);
-}
-
-div[id*=preta] {
-   background-color: var(--blackKeys);
-   width: 30px;
-   height: var(--blackKeyHeight);
-}
-
-div[id*=clear] {
-   display: hidden;
-   width: 30px;
-   height: var(--blackKeyHeight);
+.white > div:last-child div {
+  background-color: rgb(255, 174, 0);
+  border: 1px solid red;
 }
