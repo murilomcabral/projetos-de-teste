@@ -1,9 +1,6 @@
-const apiUrl = 'https://www.google.com/finance/quote/USD-BRL'
+import mdnJSON from './mdnJSON.json' assert {type: 'json'};
 
-async function getUSDBRL() {
-  const response = await fetch(apiUrl);
-  const data = await response.json();
-  console.log(data);
-}
+superHeroes.parse(superHeroes)
 
-getUSDBRL()
+superHeroes.homeTown
+superHeroes['active']
