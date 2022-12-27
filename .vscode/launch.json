@@ -13,7 +13,7 @@
          "skipFiles": [
             "<node_internals>/**"
          ],
-         "program": "${workspaceFolder}\\webTest/dom.js"
+         "program": "${workspaceFolder}\\webTest/mdnJavascript.js"
       }
    ]
 }
