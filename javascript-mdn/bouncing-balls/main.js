@@ -9,8 +9,15 @@ const height = canvas.height = window.innerHeight;
 // function to generate random number
 
 function random(min, max) {
+
   const num = Math.floor(Math.random() * (max - min + 1)) + min;
-  return num;
+
+  if (num == 0) {
+    return random(min, max);
+  }
+
+    return num;
+
 }
 
 // function to generate random color
@@ -72,13 +79,12 @@ class Ball {
       }
     }
   }
-  
 
 }
 
 const balls = [];
 
-while (balls.length < 10) {
+while (balls.length < 50) {
   const size = random(10, 20);
   const ball = new Ball(
     // ball position always drawn at least one ball width
@@ -106,7 +112,6 @@ function loop() {
 
   requestAnimationFrame(loop);
 }
-
 
 loop();
 
