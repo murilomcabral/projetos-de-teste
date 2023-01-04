@@ -12,16 +12,35 @@ html {
 body {
   overflow: hidden;
   height: inherit;
+  background-color: black;
 }
 
 h1 {
   font-size: 2rem;
   letter-spacing: -1px;
-  position: absolute;
+  position: fixed;
   margin: 0;
-  top: -4px;
+  top: 5px;
   right: 5px;
 
-  color: transparent;
-  text-shadow: 0 0 4px white;
+  color: rgba(255 255 255 / .25);
+
+  z-index: 50;
+  }
+
+p {
+  position: fixed;
+  margin: 0;
+  top: 45px;
+  right: 5px;
+  color: #aaa;
+
+  z-index: 50;
+}
+
+canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
