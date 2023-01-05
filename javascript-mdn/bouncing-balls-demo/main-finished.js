@@ -121,9 +121,9 @@ class EvilCircle extends Shape {
 
  }
   
-  draw() {
+  draw(clX = this.x, clY = this.y) {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.arc(clX, clY, this.size, 0, 2 * Math.PI);
     ctx.strokeStyle = this.color;
     ctx.lineWidth = 3;
     ctx.stroke();
@@ -236,4 +236,12 @@ setTimeout(() => {
 
 }, timeoutCountdown);
 
+const evilCursor = new EvilCircle(10,10)
+
 loop();
+
+// window.addEventListener('mousemove', (event) => {
+//   evilCursor.draw(event.clientX, event.clientY)
+//   evilCursor.checkBounds()
+//   evilCursor.collisionDetect()
+// })
