@@ -1,30 +1,45 @@
 const table = document.querySelector('table');
 const bttGenerate = document.querySelector('#btnGenerateNew');
+const bttSave = document.querySelector('#saveAsPdf');
 let arr = [];
 const xA = document.querySelector('#xAxis');
 const yA = document.querySelector('#yAxis');
 const elementsArray = [xA,yA]
 let arrLength = '';
+const AxisMin = 1;
+const AxisMax = 100;
 
-function generate() {
+xA.setAttribute('min', AxisMin)
+xA.setAttribute('max', AxisMax)
+yA.setAttribute('min', AxisMin)
+yA.setAttribute('max', AxisMax)
 
-   for (let i = 0; arr.length < arrLength; i++) {
+//Limita valor mínimo e máximo na input box.
+elementsArray.forEach((elem) => {
+  elem.addEventListener('change', () => {
+    if (elem.value < AxisMin) {
+      elem.value = AxisMin;
+    } else if (elem.value > AxisMax) {
+      elem.value = AxisMax;
+    }
+  })
+});
 
-      let rnd = Math.floor(Math.random() * 1000)
-
-      if (rnd > 0 && rnd <= arrLength && !arr.includes(rnd)) {
-         arr.push(rnd);
-      }
-   }
-   return
-}
-
-function reset() {
+function clearTable() {
    arr = [];
    table.innerHTML = '';
    xAxis = xA.value;
    yAxis = yA.value;
    arrLength = xAxis * yAxis;
+}
+
+function generateNumbers() {
+  for (let i = 0; arr.length < arrLength; i++) {
+     let rnd = Math.floor(Math.random() * (xA.value * yA.value + 1));
+     if (rnd > 0 && rnd <= arrLength && !arr.includes(rnd)) {
+        arr.push(rnd);
+     }
+  }
 }
 
 function createTable() {
@@ -40,7 +55,7 @@ function createTable() {
    }
 }
 
-function update() {
+function populateTable() {
    const cell = table.querySelectorAll('td')
    let i = 0;
    for (let cel of cell) {
@@ -49,26 +64,12 @@ function update() {
    }
 }
 
-elementsArray.forEach(function(elem){
- elem.addEventListener('change', () => {
-      reset()
-      generate();
-      createTable();
-      update();
-   });
-})
-
 bttGenerate.addEventListener('click', () => {
-   reset()
-   generate();
+   clearTable()
+   generateNumbers();
    createTable();
-   update();
+   populateTable();
 });
-
-reset()
-generate();
-createTable();
-update();
 
    //number sort function
    //sort(function(a, b){return a-b})
