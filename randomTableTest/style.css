@@ -47,6 +47,6 @@ input {
 }
 
 .btnGenerateNew, .saveAsPdf {
-   width: 100%;
+   width: 100px;
    align-items: center;
 }
