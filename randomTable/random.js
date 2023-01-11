@@ -1,24 +1,23 @@
-window.addEventListener('load', () => {
-  const containerAlerta = document.createElement('div')
-  const alerta = document.createElement('p')
+// window.addEventListener('load', () => {
+//   const containerAlerta = document.createElement('div')
+//   const alerta = document.createElement('p')
 
-  alerta.textContent = 'PROJETO EM CONSTRUÇÃO'
+//   alerta.textContent = 'PROJETO EM CONSTRUÇÃO'
 
-  containerAlerta.style.cssText = 'margin: 0; padding: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; font-family: Arial, sans-serif; font-size: 2rem; text-align: center; width: 100vw; height: 100vh; background-color: rgba(0 0 0 / .5); backdrop-filter: blur(2px)'
+//   containerAlerta.style.cssText = 'margin: 0; padding: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; font-family: Arial, sans-serif; font-size: 2rem; text-align: center; width: 100vw; height: 100vh; background-color: rgba(0 0 0 / .5); backdrop-filter: blur(2px)'
 
-  alerta.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'
+//   alerta.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'
 
-  containerAlerta.appendChild(alerta)
-  document.body.appendChild(containerAlerta)
+//   containerAlerta.appendChild(alerta)
+//   document.body.appendChild(containerAlerta)
 
-  function removeAlert() {
-    document.body.removeChild(containerAlerta)
-    return window.removeEventListener('click', removeAlert)
-  }
+//   function removeAlert() {
+//     document.body.removeChild(containerAlerta)
+//     return window.removeEventListener('click', removeAlert)
+//   }
 
-  window.addEventListener('click', removeAlert)
-})
-
+//   window.addEventListener('click', removeAlert)
+// })
 
 const table = document.querySelector('table');
 const bttGenerate = document.querySelector('#btnGenerateNew');
