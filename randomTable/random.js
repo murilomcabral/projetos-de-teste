@@ -90,6 +90,9 @@ bttGenerate.addEventListener('click', () => {
    generateNumbers();
    createTable();
    populateTable();
+   generateNumbers();
+   createTable();
+   populateTable();
 });
 
    //number sort function

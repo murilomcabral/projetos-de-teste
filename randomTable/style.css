@@ -1,6 +1,10 @@
 @import url(../reset.css);
 
-div {
+html {
+  background-color: rgb(120 120 120);
+}
+
+div.common {
   display: flex;
   text-align: center;
   justify-content: center;
@@ -40,7 +44,7 @@ td {
    height: 5mm;
 }
 
-input {
+input[type="number"] {
    display: flex;
    flex-direction: column;
    font-size: 15px;

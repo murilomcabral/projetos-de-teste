@@ -5,31 +5,48 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="style.css" media="all">
+   <link rel="stylesheet" href="symbols.css">
+   <link rel="stylesheet" href="menuOpt.css">
    <link rel="stylesheet" href="print.css" media="print">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
    <title>Gerador de tabela aleatória sem repetição</title>
 </head>
 <body>
-   <section class="menuContainer">
-      <div>
-         <h1>Gerador</h1>
-      </div>
-      <div>
-         <p>X Axis: <input type="number" name="xAxis" id="xAxis" value="1"></p>
-         <p>Y Axis: <input type="number" name="yAxis" id="yAxis" value="1"></p>
-      </div>
-      <div>
-         <p><input type="button" id="btnGenerateNew" class="btnGenerateNew" value="Generate"></p>
-         <!-- <p><input type="button" id="saveAsPdf" class="saveAsPdf" value="Save as PDF"></p> -->
-      </div>
-   </section>
 
-   <div class="tableContainer">
-      <table>
-        <!-- <tr><td>1</td><td>10</td><td>100</td><td>1000</td></tr>
-        <tr><td>1</td><td>10</td><td>100</td><td>1000</td></tr>
-        <tr><td>1</td><td>10</td><td>100</td><td>1000</td></tr> -->
-      </table>
-   </div>
-   <script src="random.js"></script>
+  <div class="menuBtt">
+    <span class="material-symbols-outlined">Settings</span>
+    <nav class="optBox">
+      <p>Width:</p>
+      <input type="range" name="cel-width" id="cel-width" min="3" max="15" step="1" value="7">
+      <p>Height:</p>
+      <input type="range" name="cel-height" id="cel-height" min="3" max="15" step="1" value="7">
+    </nav>
+  </div>
+  
+  <section class="menuContainer">
+    <div class="common">
+      <h1>Gerador</h1>
+    </div>
+    <div class="common">
+      <p>X Axis: <input type="number" name="xAxis" id="xAxis" value="1"></p>
+      <p>Y Axis: <input type="number" name="yAxis" id="yAxis" value="1"></p>
+    </div>
+    <div class="common">
+      <p><input type="button" id="btnGenerateNew" class="btnGenerateNew" value="Generate"></p>
+      <!-- <p><input type="button" id="saveAsPdf" class="saveAsPdf" value="Save as PDF"></p> -->
+    </div>
+  </section>
+
+  <div class="common tableContainer">
+    <table>
+      <!-- <tr><td>1</td><td>10</td><td>100</td><td>1000</td></tr>
+      <tr><td>1</td><td>10</td><td>100</td><td>1000</td></tr>
+      <tr><td>1</td><td>10</td><td>100</td><td>1000</td></tr> -->
+    </table>
+  </div>
+
+  <script src="random.js"></script>
+  <script src="menu.js"></script>
+
 </body>
 </html>
