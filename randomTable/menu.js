@@ -15,15 +15,22 @@
 const menuIcon = document.querySelector('.menuBtt')
 const optBox = document.querySelector('.optBox')
 
-function showMenu() {
-  // alert('test')
-  optBox.style.display = 'block';
-  optBox.addEventListener('mouseleave', hideMenu)
+function showMenu(ev) {
+
+  console.log(ev.target)
+
+  if (optBox.style.display =='block') {
+    optBox.style.display = 'none';
+  } else {
+    optBox.style.display = 'block';
+  }
+
+  // optBox.addEventListener('mouseleave', hideMenu)
 }
 
-function hideMenu() {
-  // alert('test')
-  optBox.style.display = 'none';
-}
+// function hideMenu(e) {
+//   optBox.style.display = 'none';
+//   optBox.removeEventListener('mouseleave', hideMenu)
+// }
 
 menuIcon.addEventListener('click', showMenu)
