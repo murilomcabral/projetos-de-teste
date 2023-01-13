@@ -13,17 +13,23 @@
 </head>
 <body>
 
-  <div class="menuBtt">
-    <span class="material-symbols-outlined">Settings</span>
-    <nav class="optBox">
-      <p>Width:</p>
-      <input type="range" name="cel-width" id="cel-width" min="3" max="15" step="1" value="7">
-      <p>Height:</p>
-      <input type="range" name="cel-height" id="cel-height" min="3" max="15" step="1" value="7">
-    </nav>
-  </div>
+
   
   <section class="menuContainer">
+
+    <div class="menuBtt">
+      <span class="material-symbols-outlined">Settings</span>
+    </div>
+    <nav class="optBox">
+
+      <p>Width: <span class="cel-width-output"></span></p>
+      <input type="range" name="cel-width-slider" class="cel-width-slider" id="cel-width-slider" min="3" max="15" step="1">
+
+      <p>Height: <span class="cel-height-output"></span></p>
+      <input type="range" name="cel-height-slider" class="cel-height-slider" id="cel-height-slider" min="3" max="15" step="1">
+
+    </nav>
+
     <div class="common">
       <h1>Gerador</h1>
     </div>
@@ -33,8 +39,8 @@
     </div>
     <div class="common">
       <p><input type="button" id="btnGenerateNew" class="btnGenerateNew" value="Generate"></p>
-      <!-- <p><input type="button" id="saveAsPdf" class="saveAsPdf" value="Save as PDF"></p> -->
     </div>
+
   </section>
 
   <div class="common tableContainer">

@@ -55,4 +55,5 @@ input[type="number"] {
 .btnGenerateNew, .saveAsPdf {
    width: 100%;
    align-items: center;
+   padding: 3px;
 }

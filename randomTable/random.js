@@ -1,24 +1,3 @@
-// window.addEventListener('load', () => {
-//   const containerAlerta = document.createElement('div')
-//   const alerta = document.createElement('p')
-
-//   alerta.textContent = 'PROJETO EM CONSTRUÇÃO'
-
-//   containerAlerta.style.cssText = 'margin: 0; padding: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; font-family: Arial, sans-serif; font-size: 2rem; text-align: center; width: 100vw; height: 100vh; background-color: rgba(0 0 0 / .5); backdrop-filter: blur(2px)'
-
-//   alerta.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);'
-
-//   containerAlerta.appendChild(alerta)
-//   document.body.appendChild(containerAlerta)
-
-//   function removeAlert() {
-//     document.body.removeChild(containerAlerta)
-//     return window.removeEventListener('click', removeAlert)
-//   }
-
-//   window.addEventListener('click', removeAlert)
-// })
-
 const table = document.querySelector('table');
 const bttGenerate = document.querySelector('#btnGenerateNew');
 let arr = [];
@@ -85,15 +64,82 @@ function populateTable() {
    }
 }
 
-bttGenerate.addEventListener('click', () => {
-   clearTable()
-   generateNumbers();
-   createTable();
-   populateTable();
-   generateNumbers();
-   createTable();
-   populateTable();
-});
+// bttGenerate.addEventListener('click', () => {
+//    clearTable()
+//    generateNumbers();
+//    createTable();
+//    populateTable();
+// });
 
    //number sort function
    //sort(function(a, b){return a-b})
+
+//============================================================================
+//============================================================================
+
+const menuIcon = document.querySelector('.menuBtt');
+const optBox = document.querySelector('.optBox');
+
+const widthSlider = document.querySelector('.cel-width-slider');
+const widthOutput = document.querySelector('.cel-width-output');
+widthOutput.textContent = widthSlider.value = 7 + " mm";
+
+const heightSlider = document.querySelector('.cel-height-slider');
+const heightOutput = document.querySelector('.cel-height-output');
+heightOutput.textContent = heightSlider.value = 7 + " mm";
+
+function showMenu(ev) {
+  if (optBox.style.display =='block') {
+    optBox.style.display = 'none';
+  } else {
+    optBox.style.display = 'block';
+  }
+  // optBox.addEventListener('mouseleave', hideMenu);
+}
+
+// function hideMenu(e) {
+//   optBox.style.display = 'none';
+//   optBox.removeEventListener('mouseleave', hideMenu);
+// }
+
+menuIcon.addEventListener('click', showMenu);
+
+
+//cel width controller
+function changeWidth(celW) {
+  console.log(celW)
+  celW.style.width = `${widthSlider.value}mm`;
+}
+
+widthSlider.addEventListener('change', () => {
+  const tableCel = document.querySelectorAll('td');
+  widthOutput.textContent = widthSlider.value + " mm";
+  tableCel.forEach(changeWidth);
+});
+
+//cel height controller
+function changeHeight(celH) {
+  console.log(celH)
+  celH.style.height = `${heightSlider.value}mm`;
+}
+
+heightSlider.addEventListener('change', () => {
+  const tableCel = document.querySelectorAll('td');
+  heightOutput.textContent = heightSlider.value + " mm";
+  tableCel.forEach(changeHeight);
+});
+
+//============================================================================
+//============================================================================
+
+bttGenerate.addEventListener('click', () => {
+  clearTable()
+  generateNumbers();
+  createTable();
+  populateTable();
+  const tableCel = document.querySelectorAll('td');
+  heightOutput.textContent = heightSlider.value + " mm";
+  tableCel.forEach(changeHeight);
+  widthOutput.textContent = widthSlider.value + " mm";
+  tableCel.forEach(changeWidth);
+});
