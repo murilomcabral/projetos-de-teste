@@ -107,7 +107,6 @@ menuIcon.addEventListener('click', showMenu);
 
 //cel width controller
 function changeWidth(celW) {
-  console.log(celW)
   celW.style.width = `${widthSlider.value}mm`;
 }
 
@@ -119,7 +118,6 @@ widthSlider.addEventListener('change', () => {
 
 //cel height controller
 function changeHeight(celH) {
-  console.log(celH)
   celH.style.height = `${heightSlider.value}mm`;
 }
 
