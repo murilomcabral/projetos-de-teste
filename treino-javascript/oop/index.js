@@ -23,10 +23,14 @@ class Person {
     const acMonth = date.getMonth();
     const acYear = date.getFullYear();
 
+    // `${this.bDay}/${this.bMonth}/${this.bYear}`
+
     if(this.birth_date.length !== 8) {
       return 'ERRO! Data must have two digits for day and month, and four digits for year (fullyear). (e.g., 03101986 results in 03/10/1986)'
+    } else if (acMonth < this.bMonth || (acMonth == this.bMonth && acDay < this.bDay)) {
+      return `${acYear - this.bYear}`
     } else {
-      return `${this.bDay}/${this.bMonth}/${this.bYear}`
+      return `${(acYear - this.bYear) - 1}`
     }
   }
 
