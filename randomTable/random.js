@@ -13,9 +13,9 @@ xA.setAttribute('max', AxisMax)
 yA.setAttribute('min', AxisMin)
 yA.setAttribute('max', AxisMax)
 
-//Limita valor mínimo e máximo na input box.
+//Limita valor mínimo e máximo
 elementsArray.forEach((elem) => {
-  elem.addEventListener('change', () => {
+  elem.addEventListener('input', () => {
     if (elem.value < AxisMin) {
       elem.value = AxisMin;
     } else if (elem.value > AxisMax) {
@@ -64,16 +64,6 @@ function populateTable() {
    }
 }
 
-// bttGenerate.addEventListener('click', () => {
-//    clearTable()
-//    generateNumbers();
-//    createTable();
-//    populateTable();
-// });
-
-   //number sort function
-   //sort(function(a, b){return a-b})
-
 //============================================================================
 //============================================================================
 
@@ -94,34 +84,25 @@ function showMenu(ev) {
   } else {
     optBox.style.display = 'block';
   }
-  // optBox.addEventListener('mouseleave', hideMenu);
 }
-
-// function hideMenu(e) {
-//   optBox.style.display = 'none';
-//   optBox.removeEventListener('mouseleave', hideMenu);
-// }
 
 menuIcon.addEventListener('click', showMenu);
 
-
-//cel width controller
 function changeWidth(celW) {
   celW.style.width = `${widthSlider.value}mm`;
 }
 
-widthSlider.addEventListener('change', () => {
+widthSlider.addEventListener('input', () => {
   const tableCel = document.querySelectorAll('td');
   widthOutput.textContent = widthSlider.value + " mm";
   tableCel.forEach(changeWidth);
 });
 
-//cel height controller
 function changeHeight(celH) {
   celH.style.height = `${heightSlider.value}mm`;
 }
 
-heightSlider.addEventListener('change', () => {
+heightSlider.addEventListener('input', () => {
   const tableCel = document.querySelectorAll('td');
   heightOutput.textContent = heightSlider.value + " mm";
   tableCel.forEach(changeHeight);
