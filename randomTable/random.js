@@ -5,6 +5,7 @@ const xA = document.querySelector('#xAxis');
 const yA = document.querySelector('#yAxis');
 const elementsArray = [xA,yA]
 let arrLength = '';
+//maximum number of cells per axis
 const AxisMin = 1;
 const AxisMax = 100;
 
@@ -70,13 +71,20 @@ function populateTable() {
 const menuIcon = document.querySelector('.menuBtt');
 const optBox = document.querySelector('.optBox');
 
+//cell width controller
 const widthSlider = document.querySelector('.cel-width-slider');
 const widthOutput = document.querySelector('.cel-width-output');
-widthOutput.textContent = widthSlider.value = 7 + " mm";
+widthOutput.textContent = widthSlider.value = 12 + " mm";
 
+//cell height controller
 const heightSlider = document.querySelector('.cel-height-slider');
 const heightOutput = document.querySelector('.cel-height-output');
-heightOutput.textContent = heightSlider.value = 7 + " mm";
+heightOutput.textContent = heightSlider.value = 12 + " mm";
+
+//cell font size controller
+const fontSizeSlider = document.querySelector('.cel-font-size-slider');
+const fontSizeOutput = document.querySelector('.cel-font-size-output');
+fontSizeOutput.textContent = fontSizeSlider.value = 12 + " pt";
 
 function showMenu(ev) {
   if (optBox.style.display =='block') {
@@ -98,6 +106,7 @@ widthSlider.addEventListener('input', () => {
   tableCel.forEach(changeWidth);
 });
 
+
 function changeHeight(celH) {
   celH.style.height = `${heightSlider.value}mm`;
 }
@@ -107,6 +116,19 @@ heightSlider.addEventListener('input', () => {
   heightOutput.textContent = heightSlider.value + " mm";
   tableCel.forEach(changeHeight);
 });
+
+
+function changeFontSize(celFontSize) {
+  celFontSize.style.fontSize = `${fontSizeSlider.value}pt`;
+}
+
+fontSizeSlider.addEventListener('input', () => {
+  const tableCel = document.querySelectorAll('td');
+  fontSizeOutput.textContent = fontSizeSlider.value + " pt";
+  tableCel.forEach(changeFontSize);
+});
+
+
 
 //============================================================================
 //============================================================================
@@ -120,5 +142,7 @@ bttGenerate.addEventListener('click', () => {
   heightOutput.textContent = heightSlider.value + " mm";
   tableCel.forEach(changeHeight);
   widthOutput.textContent = widthSlider.value + " mm";
+  tableCel.forEach(changeWidth);
+  fontSizeOutput.textContent = fontSizeSlider.value + " pt";
   tableCel.forEach(changeWidth);
 });
