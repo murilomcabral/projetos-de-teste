@@ -65,8 +65,8 @@ function populateTable() {
    }
 }
 
-//============================================================================
-//============================================================================
+//===================================================================
+//===================================================================
 
 const menuIcon = document.querySelector('.menuBtt');
 const optBox = document.querySelector('.optBox');
@@ -130,8 +130,8 @@ fontSizeSlider.addEventListener('input', () => {
 
 
 
-//============================================================================
-//============================================================================
+//===================================================================
+//===================================================================
 
 bttGenerate.addEventListener('click', () => {
   clearTable()
@@ -144,5 +144,5 @@ bttGenerate.addEventListener('click', () => {
   widthOutput.textContent = widthSlider.value + " mm";
   tableCel.forEach(changeWidth);
   fontSizeOutput.textContent = fontSizeSlider.value + " pt";
-  tableCel.forEach(changeWidth);
+  tableCel.forEach(changeFontSize);
 });
