@@ -9,10 +9,13 @@ let arrLength = '';
 const AxisMin = 1;
 const AxisMax = 100;
 
-xA.setAttribute('min', AxisMin)
-xA.setAttribute('max', AxisMax)
-yA.setAttribute('min', AxisMin)
-yA.setAttribute('max', AxisMax)
+const AxisAttr = {'min': AxisMin, 'max': AxisMax, 'value': '1'}
+
+for (let attrib in AxisAttr) {
+  elementsArray.forEach((elem) => {
+    elem.setAttribute(attrib, AxisAttr[attrib])
+  })
+}
 
 //Limita valor mínimo e máximo
 elementsArray.forEach((elem) => {
@@ -68,67 +71,59 @@ function populateTable() {
 //===================================================================
 //===================================================================
 
-const menuIcon = document.querySelector('.menuBtt');
-const optBox = document.querySelector('.optBox');
+const menuIcon = document.querySelector('.menuBtt')
+const optBox = document.querySelector('.optBox')
 
 //cell width controller
-const widthSlider = document.querySelector('.cel-width-slider');
-const widthOutput = document.querySelector('.cel-width-output');
-widthOutput.textContent = widthSlider.value = 12 + " mm";
+const widthSlider = document.querySelector('.cel-width-slider')
+const widthOutput = document.querySelector('.cel-width-output')
+widthSlider.value = 10
+widthOutput.textContent = widthSlider.value + " mm"
 
 //cell height controller
-const heightSlider = document.querySelector('.cel-height-slider');
-const heightOutput = document.querySelector('.cel-height-output');
-heightOutput.textContent = heightSlider.value = 12 + " mm";
+const heightSlider = document.querySelector('.cel-height-slider')
+const heightOutput = document.querySelector('.cel-height-output')
+heightSlider.value = 9
+heightOutput.textContent = heightSlider.value + " mm"
 
 //cell font size controller
-const fontSizeSlider = document.querySelector('.cel-font-size-slider');
-const fontSizeOutput = document.querySelector('.cel-font-size-output');
-fontSizeOutput.textContent = fontSizeSlider.value = 12 + " pt";
+const fontSizeSlider = document.querySelector('.cel-font-size-slider')
+const fontSizeOutput = document.querySelector('.cel-font-size-output')
+fontSizeSlider.value = 10
+fontSizeOutput.textContent = fontSizeSlider.value + " pt"
 
-function showMenu(ev) {
-  if (optBox.style.display =='block') {
-    optBox.style.display = 'none';
-  } else {
-    optBox.style.display = 'block';
-  }
+//cell horizontal spacing controller
+const horizontalSpacingSlider = document.querySelector('.horizontal-spacing-slider')
+const horizontalSpacingOutput = document.querySelector('.horizontal-spacing-output')
+horizontalSpacingSlider.value = 1
+horizontalSpacingOutput.textContent = horizontalSpacingSlider.value + " mm"
+
+//cell vertical spacing controller
+const verticalSpacingSlider = document.querySelector('.vertical-spacing-slider')
+const verticalSpacingOutput = document.querySelector('.vertical-spacing-output')
+verticalSpacingSlider.value = 1
+verticalSpacingOutput.textContent =  verticalSpacingSlider.value + " mm"
+
+const menuOptionsList = [widthSlider, heightSlider, fontSizeSlider, horizontalSpacingSlider, verticalSpacingSlider]
+
+function styleTable() {
+  const tableCel = document.querySelectorAll('td');
+  tableCel.forEach((elem) => {
+    elem.style.cssText = `width: ${widthSlider.value}mm; height: ${heightSlider.value}mm; font-size: ${fontSizeSlider.value}pt;`
+    table.style.borderSpacing = `${horizontalSpacingSlider.value}mm ${verticalSpacingSlider.value}mm`
+  });
+  heightOutput.textContent = heightSlider.value + " mm";
+  widthOutput.textContent = widthSlider.value + " mm";
+  fontSizeOutput.textContent = fontSizeSlider.value + " pt";
+  horizontalSpacingOutput.textContent = horizontalSpacingSlider.value + " mm";
+  verticalSpacingOutput.textContent = verticalSpacingSlider.value + " mm";
 }
 
 menuIcon.addEventListener('click', showMenu);
 
-function changeWidth(celW) {
-  celW.style.width = `${widthSlider.value}mm`;
-}
-
-widthSlider.addEventListener('input', () => {
-  const tableCel = document.querySelectorAll('td');
-  widthOutput.textContent = widthSlider.value + " mm";
-  tableCel.forEach(changeWidth);
-});
-
-
-function changeHeight(celH) {
-  celH.style.height = `${heightSlider.value}mm`;
-}
-
-heightSlider.addEventListener('input', () => {
-  const tableCel = document.querySelectorAll('td');
-  heightOutput.textContent = heightSlider.value + " mm";
-  tableCel.forEach(changeHeight);
-});
-
-
-function changeFontSize(celFontSize) {
-  celFontSize.style.fontSize = `${fontSizeSlider.value}pt`;
-}
-
-fontSizeSlider.addEventListener('input', () => {
-  const tableCel = document.querySelectorAll('td');
-  fontSizeOutput.textContent = fontSizeSlider.value + " pt";
-  tableCel.forEach(changeFontSize);
-});
-
-
+menuOptionsList.forEach((elem) => {
+  elem.addEventListener('input', styleTable)
+})
 
 //===================================================================
 //===================================================================
@@ -138,11 +133,13 @@ bttGenerate.addEventListener('click', () => {
   generateNumbers();
   createTable();
   populateTable();
-  const tableCel = document.querySelectorAll('td');
-  heightOutput.textContent = heightSlider.value + " mm";
-  tableCel.forEach(changeHeight);
-  widthOutput.textContent = widthSlider.value + " mm";
-  tableCel.forEach(changeWidth);
-  fontSizeOutput.textContent = fontSizeSlider.value + " pt";
-  tableCel.forEach(changeFontSize);
+  styleTable();
 });
+
+function showMenu(ev) {
+  if (optBox.style.display =='block') {
+    optBox.style.display = 'none';
+  } else {
+    optBox.style.display = 'block';
+  }
+}

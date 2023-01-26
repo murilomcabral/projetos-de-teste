@@ -20,14 +20,20 @@
     </button>
     <nav class="optBox">
 
-      <p>Width: <span class="cel-width-output"></span></p>
+      <p userSelect>Width: <span class="cel-width-output"></span></p>
       <input type="range" name="cel-width-slider" class="cel-width-slider" id="cel-width-slider" min="3" max="20" step="1">
 
-      <p>Height: <span class="cel-height-output"></span></p>
+      <p userSelect>Height: <span class="cel-height-output"></span></p>
       <input type="range" name="cel-height-slider" class="cel-height-slider" id="cel-height-slider" min="3" max="20" step="1">
       
-      <p>Font Size: <span class="cel-font-size-output"></span></p>
+      <p userSelect>Font Size: <span class="cel-font-size-output"></span></p>
       <input type="range" name="cel-font-size-slider" class="cel-font-size-slider" id="cel-font-size-slider" min="3" max="20" step="1">
+      
+      <p userSelect>Horizontal Spacing: <span class="horizontal-spacing-output"></span></p>
+      <input type="range" name="horizontal-spacing-slider" class="horizontal-spacing-slider" id="horizontal-spacing-slider" min="1" max="20" step="1">
+      
+      <p userSelect>Vertical Spacing: <span class="vertical-spacing-output"></span></p>
+      <input type="range" name="vertical-spacing-slider" class="vertical-spacing-slider" id="vertical-spacing-slider" min="1" max="20" step="1">
       
     </nav>
 
@@ -35,8 +41,8 @@
       <h1>Gerador</h1>
     </div>
     <div class="common">
-      <p>X Axis: <input type="number" name="xAxis" id="xAxis" value="1"></p>
-      <p>Y Axis: <input type="number" name="yAxis" id="yAxis" value="1"></p>
+      <p>X Axis: <input type="number" name="xAxis" id="xAxis"></p>
+      <p>Y Axis: <input type="number" name="yAxis" id="yAxis"></p>
     </div>
     <div class="common">
       <p><input type="button" id="btnGenerateNew" class="btnGenerateNew" value="Generate"></p>
