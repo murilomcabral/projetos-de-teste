@@ -32,7 +32,7 @@ function clearTable() {
    xAxis = xA.value;
    yAxis = yA.value;
    arrLength = xAxis * yAxis;
-}
+  }
 
 function generateNumbers() {
   for (let i = 0; arr.length < arrLength; i++) {
