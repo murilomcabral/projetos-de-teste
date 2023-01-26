@@ -9,7 +9,7 @@
 }
 
 html {
-  background-color: rgb(220 220 220);
+  background-color: rgb(224, 230, 255);
 }
 
 div.common {
@@ -34,7 +34,7 @@ tr {
 
 td {
    cursor: pointer;
-   background-color: rgb(245 245 245);
+   background-color: none;
    vertical-align: middle;
    border-radius: 50%;
     
@@ -42,8 +42,6 @@ td {
    font-size: 12pt;
    color: hsl(0, 0%, 0%);
    text-align: center;
-
-
 }
 
 input[type="number"] {

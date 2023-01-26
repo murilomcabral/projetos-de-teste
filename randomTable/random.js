@@ -104,12 +104,17 @@ const verticalSpacingOutput = document.querySelector('.vertical-spacing-output')
 verticalSpacingSlider.value = 1
 verticalSpacingOutput.textContent =  verticalSpacingSlider.value + " mm"
 
-const menuOptionsList = [widthSlider, heightSlider, fontSizeSlider, horizontalSpacingSlider, verticalSpacingSlider]
+//cell data color controller
+const dataColorBox = document.querySelector('.data-color-box')
+const dataColorOutput = document.querySelector('.data-color-output')
+dataColorBox.value = '#000000'
+
+const menuOptionsList = [widthSlider, heightSlider, fontSizeSlider, horizontalSpacingSlider, verticalSpacingSlider, dataColorBox]
 
 function styleTable() {
   const tableCel = document.querySelectorAll('td');
   tableCel.forEach((elem) => {
-    elem.style.cssText = `width: ${widthSlider.value}mm; height: ${heightSlider.value}mm; font-size: ${fontSizeSlider.value}pt;`
+    elem.style.cssText = `width: ${widthSlider.value}mm; height: ${heightSlider.value}mm; font-size: ${fontSizeSlider.value}pt; color: ${dataColorBox.value};`
     table.style.borderSpacing = `${horizontalSpacingSlider.value}mm ${verticalSpacingSlider.value}mm`
   });
   heightOutput.textContent = heightSlider.value + " mm";
