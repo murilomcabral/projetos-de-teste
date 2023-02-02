@@ -63,18 +63,14 @@ const separator2 = '-------------'
 function getData() {
   let lengthSum = 0
   let maxLength = 0;
-  console.log(separator1)
+  console.log(separator1.repeat(20))
   for (let i = 0; i < arr.length; i++) {
     i == 0 ? '':console.log(separator2);
     for (let i2 in arr[i]) {
       console.log([i2] + ': ' + arr[i][i2])
-      lengthSum = [i2].toString().length + arr[i][i2].length
-    }
-    if (lengthSum > maxLength) {
-      maxLength = lengthSum
     }
   }
-  console.log(separator1.repeat(maxLength))
+  console.log(separator1.repeat(20))
 }
 
 getData()
