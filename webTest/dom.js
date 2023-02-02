@@ -43,9 +43,15 @@ const arr = [
   }    
 ]
 
-for (let i = 0; i < arr.length; i++) {
-  for (let i2 in arr[i]) {
-    console.log([i2] + ': ' + arr[i][i2])
+function getData() {
+  console.log('=============')
+  for (let i = 0; i < arr.length; i++) {
+    i == 0 ? '':console.log('------------');
+    for (let i2 in arr[i]) {
+      console.log([i2] + ': ' + arr[i][i2])
+    }
   }
   console.log('=============')
 }
+
+getData()
