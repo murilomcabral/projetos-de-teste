@@ -19,7 +19,7 @@
 // }
 
 //=====================================
-//for...in pode trabalhar com objetos
+
 const arr = [
   {
   nome: 'Manoel',
@@ -40,18 +40,41 @@ const arr = [
     nome: 'Jason',
     idade: 32,
     pais: 'Brasil'
-  }    
+  },
+  {
+    nome: 'Joana',
+    idade: 24,
+    pais: 'Brasil'
+  },
+  {
+    nome: 'Mariana',
+    idade: 29,
+    pais: 'Brasil'
+  },
+  {
+    nome: 'Hilda',
+    idade: 55,
+    pais: 'Estados Unidos'
+  }
 ]
+const separator1 = '='
+const separator2 = '-------------'
 
 function getData() {
-  console.log('=============')
+  let lengthSum = 0
+  let maxLength = 0;
+  console.log(separator1)
   for (let i = 0; i < arr.length; i++) {
-    i == 0 ? '':console.log('------------');
+    i == 0 ? '':console.log(separator2);
     for (let i2 in arr[i]) {
       console.log([i2] + ': ' + arr[i][i2])
+      lengthSum = [i2].toString().length + arr[i][i2].length
+    }
+    if (lengthSum > maxLength) {
+      maxLength = lengthSum
     }
   }
-  console.log('=============')
+  console.log(separator1.repeat(maxLength))
 }
 
 getData()
