@@ -1,22 +1,19 @@
-// function createArray(func) {
-//   setTimeout(() => {
-//     let arr = [],
-//     num = 7,
-//     i = 1;
-//     while (i<=num) {
-//       arr.push(i)
-//       i++
-//     }
-//     //func é função que foi passada como parâmetro para a função createArray.
-//     func(arr, num)
-//   }, 500);
-// }
+function createArray(func) {
+  console.log('processando...')
+  setTimeout(() => {
+    let arr = [],
+    num = 7,
+    i = 1;
+    while (i<=num) {
+      arr.push(i)
+      i++
+    }
+    //func é função que foi passada como parâmetro para a função createArray.
+    func(arr)
+  }, 1);
+}
 
-// createArray(function(array, loopX){console.log(array + ' with ' + loopX + ' loops.')})
-
-// for (let n = 0; n < 10; n++) {
-//   console.log('teste1 ' + n)
-// }
+createArray(function(array){console.log('fim do processo...\nLista gerada: '+ array)})
 
 //=====================================
 
@@ -34,7 +31,7 @@ const arr = [
   {
     nome: 'Gabriel',
     idade: 27,
-    pais: 'Irlanda'
+    pais: 'Brasil'
   },
   {
     nome: 'Jason',
@@ -47,7 +44,7 @@ const arr = [
     pais: 'Brasil'
   },
   {
-    nome: 'Mariana',
+    nome: 'Maria',
     idade: 29,
     pais: 'Brasil'
   },
@@ -57,20 +54,20 @@ const arr = [
     pais: 'Estados Unidos'
   }
 ]
-const separator1 = '='
-const separator2 = '-------------'
 
 function getData() {
-  let lengthSum = 0
-  let maxLength = 0;
-  console.log(separator1.repeat(20))
+  const separator1 = '='.repeat(20)
+  const separator2 = '-'.repeat(15)+'<'
+  console.log('\n'+separator1+'\nInício da lista\n'+separator1)
+
   for (let i = 0; i < arr.length; i++) {
     i == 0 ? '':console.log(separator2);
     for (let i2 in arr[i]) {
       console.log([i2] + ': ' + arr[i][i2])
     }
   }
-  console.log(separator1.repeat(20))
+
+  console.log(separator1+'\nFim da lista\n'+separator1+'\n')
 }
 
 getData()
