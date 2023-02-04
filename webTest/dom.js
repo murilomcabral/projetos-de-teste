@@ -1,19 +1,11 @@
-function createArray(func) {
+async function createArray(num) {
   console.log('processando...')
-  setTimeout(() => {
-    let arr = [],
-    num = 7,
-    i = 1;
-    while (i<=num) {
-      arr.push(i)
-      i++
-    }
-    //func é função que foi passada como parâmetro para a função createArray.
-    func(arr)
-  }, 1);
+  let a = 6, b = num;
+  let c = await a * b;
+  console.log(typeof(c), c)
 }
 
-createArray(function(array){console.log('fim do processo...\nLista gerada: '+ array)})
+createArray(2)
 
 //=====================================
 
@@ -42,16 +34,6 @@ const arr = [
     nome: 'Joana',
     idade: 24,
     pais: 'Brasil'
-  },
-  {
-    nome: 'Maria',
-    idade: 29,
-    pais: 'Brasil'
-  },
-  {
-    nome: 'Hilda',
-    idade: 55,
-    pais: 'Estados Unidos'
   }
 ]
 
