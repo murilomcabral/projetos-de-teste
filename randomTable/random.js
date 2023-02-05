@@ -5,6 +5,7 @@ const xA = document.querySelector('#xAxis');
 const yA = document.querySelector('#yAxis');
 const elementsArray = [xA,yA]
 let arrLength = '';
+
 //maximum number of cells per axis
 const AxisMin = 1;
 const AxisMax = 100;
