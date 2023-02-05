@@ -118,6 +118,7 @@ function styleTable() {
     elem.style.cssText = `width: ${widthSlider.value}mm; height: ${heightSlider.value}mm; font-size: ${fontSizeSlider.value}pt; color: ${dataColorBox.value};`
     table.style.borderSpacing = `${horizontalSpacingSlider.value}mm ${verticalSpacingSlider.value}mm`
   });
+
   heightOutput.textContent = heightSlider.value + " mm";
   widthOutput.textContent = widthSlider.value + " mm";
   fontSizeOutput.textContent = fontSizeSlider.value + " pt";
