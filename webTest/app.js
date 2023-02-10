@@ -18,7 +18,7 @@ function getTarget(array1, array2, target) {
   let prox = 0;
 
   for (let i = 0; i < arr.length; i++) {
-
+    //test arr[i] vs arr[i+1] vs prox
   }
   
   return prox
