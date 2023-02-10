@@ -1,6 +1,9 @@
-const arr1 = [-1, 3, 8, 2, 9, 6];
+const arr1 = [-1, 3, 8, 2, 9, 5];
 const arr2 = [4, 1, 2, 10, 5, 20];
 const tgt = 24;
+
+//retorna o primeiro valor mais proximo do valor de "target"
+//o valor é o resultado da soma entre 1 objeto de cada array
 
 console.log('Resultado: ' + getTarget(arr1, arr2, tgt))
 
@@ -14,13 +17,12 @@ function getTarget(array1, array2, target) {
     }
   }
   sum = undefined
-
-  let prox = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    //test arr[i] vs arr[i+1] vs prox
-  }
   
+  let prox = 0;
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (Math.abs(target - arr[i]) < Math.abs(target - prox) && arr[i] !== target) {prox = arr[i]}
+  }
   return prox
 }
 
