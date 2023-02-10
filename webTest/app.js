@@ -15,15 +15,10 @@ function getTarget(array1, array2, target) {
   }
   sum = undefined
 
-  let dif = 0;
   let prox = 0;
 
-  //testar aqui
-  for (let num of arr) {
-    if (num !== target) {
-      dif = Math.abs(num - target)
-      if (target - dif < target - prox ) {prox = num}
-    }
+  for (let i = 0; i < arr.length; i++) {
+
   }
   
   return prox
