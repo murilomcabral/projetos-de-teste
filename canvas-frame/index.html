@@ -6,14 +6,17 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <style>
 
-      path:hover {
-         filter: invert(1);
+      * {
+         margin: 0;
+         padding: 0;
       }
+
+      /* path:hover {filter: invert(1);} */
       
       svg {
          stroke: red;
          fill: none;
-         stroke-width: 2px;
+         stroke-width: 1px;
          background-color: hsla(0 0% 50% / .5);
       }
 
@@ -22,21 +25,35 @@
 </head>
 <body>
    <svg width="400" height="400">
-      <path d="M 20 20l10 10 0 50">
+      <path d="M20 20L20 10">
       <!-- <path d="M 380 20 L 380 380 L 20 200 L 50 50 z M 200 50 L 350 200 L 200 350 L 50 200 z"> -->
-      <!-- <circle cx="20" cy="20" r="20" fill="rgba(255 0 0 / .5)"></circle> -->      
+      <!-- <circle cx="20" cy="20" r="20" fill="rgba(255 0 0 / .5)"></circle> -->
    </svg>
    <script>
       const svgCanvas = document.querySelector('svg')
-      const selectedPath = document.querySelector('path')
+      const pathA = document.querySelector('path')
+      svgCanvas.addEventListener('mousemove', (e) => {
+         console.log(e.clientX + " " + e.clientY)
+      })
+
+      svgCanvas.addEventListener('click', (e) => {
+         let d = pathA.getAttribute('d')
+         if (d.charAt(d.length - 1) == 'z') {
+            d += `M${e.clientX} ${e.clientY}`
+            pathA.setAttribute('d', d)
+         } else {
+            d += `L${e.clientX} ${e.clientY}`
+            pathA.setAttribute('d', d)
+         }
+      })
+
+      // close path on "Enter" keydown
       window.addEventListener('keydown', (e) => {
          if (e.key === "Enter") {
-            let d = selectedPath.getAttribute("d")
-            if (!d.includes('z')) {
-               d = d + 'z'
-            }
+            let d = pathA.getAttribute("d")
+            d = d + 'z'
             console.log(d)
-            selectedPath.setAttribute('d',d)
+            pathA.setAttribute('d',d)
          }
       })
    </script>
