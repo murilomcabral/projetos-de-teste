@@ -3,5 +3,5 @@
 <a href="https://murilomcabral.github.io/projetos-de-teste/grid/grid-01/index.html">MDN Grid</a><br><br>
 <a href="https://murilomcabral.github.io/projetos-de-teste/webTest/index.html">RGB</a><br><br>
 <a href="https://murilomcabral.github.io/projetos-de-teste/documentacao/assessment-image-gallery/index.html">Image gallery</a><br><br>
-<a href="https://murilomcabral.github.io/projetos-de-teste/javascript-mdn/bouncing-balls/index.html">Bouncing Balls - MDN</a>
+<a href="https://murilomcabral.github.io/projetos-de-teste/javascript-mdn/bouncing-balls/index.html">Bouncing Balls - MDN</a><br><br>
 <a href="https://murilomcabral.github.io/projetos-de-teste/canvas-frame/index.html">Canvas</a>
