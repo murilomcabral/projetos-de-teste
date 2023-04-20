@@ -4,14 +4,41 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+
+      path:hover {
+         filter: invert(1);
+      }
+      
+      svg {
+         stroke: red;
+         fill: none;
+         stroke-width: 2px;
+         background-color: hsla(0 0% 50% / .5);
+      }
+
+   </style>
    <title></title>
 </head>
 <body>
-   <svg width="400" height="400" stroke="red" stroke-width="2" fill="none" style="background-color:gray">
-      <path d="M 380 20 L 380 380 L 20 200 L 50 50 z M 200 50 L 350 200 L 200 350 L 50 200 z">
-      <!-- <path d="M 200 0 L 400 200 L 200 400 L 50 50 z"> -->
-      <!-- <circle cx="20" cy="20" r="20" fill="rgba(255 0 0 / .5)"></circle> -->
-      
+   <svg width="400" height="400">
+      <path d="M 20 20l10 10 0 50">
+      <!-- <path d="M 380 20 L 380 380 L 20 200 L 50 50 z M 200 50 L 350 200 L 200 350 L 50 200 z"> -->
+      <!-- <circle cx="20" cy="20" r="20" fill="rgba(255 0 0 / .5)"></circle> -->      
    </svg>
+   <script>
+      const svgCanvas = document.querySelector('svg')
+      const selectedPath = document.querySelector('path')
+      window.addEventListener('keydown', (e) => {
+         if (e.key === "Enter") {
+            let d = selectedPath.getAttribute("d")
+            if (!d.includes('z')) {
+               d = d + 'z'
+            }
+            console.log(d)
+            selectedPath.setAttribute('d',d)
+         }
+      })
+   </script>
 </body>
 </html>
