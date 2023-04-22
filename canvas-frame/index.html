@@ -25,35 +25,36 @@
 </head>
 <body>
    <svg width="400" height="400">
-      <path d="M20 20L20 10">
+      <path d="M10 10 l10 30">
       <!-- <path d="M 380 20 L 380 380 L 20 200 L 50 50 z M 200 50 L 350 200 L 200 350 L 50 200 z"> -->
       <!-- <circle cx="20" cy="20" r="20" fill="rgba(255 0 0 / .5)"></circle> -->
    </svg>
    <script>
+
       const svgCanvas = document.querySelector('svg')
-      const pathA = document.querySelector('path')
+      const pathObject = document.querySelector('path')
       svgCanvas.addEventListener('mousemove', (e) => {
          console.log(e.clientX + " " + e.clientY)
       })
 
       svgCanvas.addEventListener('click', (e) => {
-         let d = pathA.getAttribute('d')
+         let d = pathObject.getAttribute('d')
          if (d.charAt(d.length - 1) == 'z') {
             d += `M${e.clientX} ${e.clientY}`
-            pathA.setAttribute('d', d)
+            pathObject.setAttribute('d', d)
          } else {
             d += `L${e.clientX} ${e.clientY}`
-            pathA.setAttribute('d', d)
+            pathObject.setAttribute('d', d)
          }
       })
 
       // close path on "Enter" keydown
       window.addEventListener('keydown', (e) => {
          if (e.key === "Enter") {
-            let d = pathA.getAttribute("d")
+            let d = pathObject.getAttribute("d")
             d = d + 'z'
             console.log(d)
-            pathA.setAttribute('d',d)
+            pathObject.setAttribute('d',d)
          }
       })
    </script>
