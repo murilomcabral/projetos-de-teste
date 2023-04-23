@@ -14,8 +14,11 @@
       /* path:hover {filter: invert(1);} */
       
       svg {
+         margin: auto;
+         width: 540px;
+         height: 540px;
          stroke: red;
-         fill: none;
+         fill: rgba(0 0 255 / .2);
          stroke-width: 1px;
          background-color: hsla(0 0% 50% / .5);
       }
@@ -24,39 +27,49 @@
    <title></title>
 </head>
 <body>
-   <svg width="400" height="400">
-      <path d="M10 10 l10 30">
-      <!-- <path d="M 380 20 L 380 380 L 20 200 L 50 50 z M 200 50 L 350 200 L 200 350 L 50 200 z"> -->
-      <!-- <circle cx="20" cy="20" r="20" fill="rgba(255 0 0 / .5)"></circle> -->
+   <svg>
+      <path>
    </svg>
    <script>
 
       const svgCanvas = document.querySelector('svg')
       const pathObject = document.querySelector('path')
-      svgCanvas.addEventListener('mousemove', (e) => {
-         console.log(e.clientX + " " + e.clientY)
-      })
+      let dCheck = ''
+      
 
+      //track line end
+      function handleMouveEvent(e) {
+         pathObject.setAttribute('d', `${dCheck}L${e.clientX} ${e.clientY}`)
+      }
+
+      //double-click closes path
+      function closePath() {
+         d = pathObject.getAttribute('d')
+         d += 'z'
+         pathObject.setAttribute('d', d)
+         svgCanvas.removeEventListener('mousemove', handleMouveEvent)
+      }
+
+      svgCanvas.addEventListener('dblclick', closePath)
+      window.addEventListener('keydown', (e) => {if (e.key === 'Escape' || e.key === 'Enter') {closePath()}})
+
+      //start drawing
       svgCanvas.addEventListener('click', (e) => {
-         let d = pathObject.getAttribute('d')
-         if (d.charAt(d.length - 1) == 'z') {
-            d += `M${e.clientX} ${e.clientY}`
-            pathObject.setAttribute('d', d)
+
+         if (!pathObject.hasAttribute('d')) {
+            pathObject.setAttribute('d', `M${e.clientX} ${e.clientY}`)
          } else {
-            d += `L${e.clientX} ${e.clientY}`
-            pathObject.setAttribute('d', d)
+            let d2 = pathObject.getAttribute('d')
+            if (d2.charAt(d2.length - 1) == 'z') {
+               pathObject.setAttribute('d', `${d2}M${e.clientX} ${e.clientY}`)
+            }
          }
+
+         dCheck = pathObject.getAttribute('d')
+         svgCanvas.addEventListener('mousemove', handleMouveEvent)
+
       })
 
-      // close path on "Enter" keydown
-      window.addEventListener('keydown', (e) => {
-         if (e.key === "Enter") {
-            let d = pathObject.getAttribute("d")
-            d = d + 'z'
-            console.log(d)
-            pathObject.setAttribute('d',d)
-         }
-      })
    </script>
 </body>
 </html>
