@@ -28,15 +28,13 @@
 </head>
 <body>
    <svg>
-      <path>
+      <path></path>
    </svg>
    <script>
-
       const svgCanvas = document.querySelector('svg')
       const pathObject = document.querySelector('path')
       let dCheck = ''
       
-
       //track line end
       function handleMouveEvent(e) {
          pathObject.setAttribute('d', `${dCheck}L${e.clientX} ${e.clientY}`)
@@ -51,7 +49,7 @@
       }
 
       svgCanvas.addEventListener('dblclick', closePath)
-      window.addEventListener('keydown', (e) => {if (e.key === 'Escape' || e.key === 'Enter') {closePath()}})
+      window.addEventListener('keydown', (e) => {if (e.key === 'Enter') {closePath()}})
 
       //start drawing
       svgCanvas.addEventListener('click', (e) => {
@@ -69,7 +67,6 @@
          svgCanvas.addEventListener('mousemove', handleMouveEvent)
 
       })
-
    </script>
 </body>
 </html>
