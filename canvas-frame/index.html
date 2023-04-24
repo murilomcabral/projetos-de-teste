@@ -12,8 +12,22 @@
          --size: 100vh;
       }
 
+      .container {
+         display: flex;
+      }
+
       html {
          background-color: bisque;
+      }
+
+      aside {
+         display: flex;
+         flex-direction: column;
+      }
+      .tool-bar, .svg-config {
+         width: 100px;
+         height: 100%;
+         background-color: azure;
       }
 
       svg {
@@ -26,22 +40,48 @@
          background-color: hsla(0 0% 50% / .5);
       }
 
+      textarea {
+         resize: none;
+      }
+
    </style>
    <title></title>
 </head>
 <body>
-   <svg>
-      <path></path>
-   </svg>
+   <div class="container">
+      <aside>
+         <textarea name="" id="" cols="30" rows="10"></textarea>
+         <div class="tool-bar">
+         </div>
+         <table class="svg-config">
+         </table>
+      </aside>
+      <svg>
+         <g>
+            <path d="M50 50C120 120 100 150 150 150"></path>
+            <path d="M50 50L120 120"></path>
+            <path d="M150 150L100 150"></path>
+         </g>
+      </svg>
+   </div>
    <script>
 
+      const table = document.querySelector('table')
       const svgCanvas = document.querySelector('svg')
       const pathObject = document.querySelector('path')
+      let svgPos = svgCanvas.getBoundingClientRect()
       let dCheck = ''
+
+      
       
       //track line end
       function handleMouveEvent(e) {
-         pathObject.setAttribute('d', `${dCheck}L${e.clientX} ${e.clientY}`)
+         //adjust click X and Y <<<<<<<<<<<<<<<<<<<<<<<<<<
+         svgPos = svgCanvas.getBoundingClientRect()
+         console.log(`${svgPos.x} | ${svgPos.y}`)
+         let xPos = e.clientX - svgPos.x
+         let yPos = e.clientY - svgPos.y
+         pathObject.setAttribute('d', `${dCheck}L${xPos} ${yPos}`)
       }
 
       //double-click closes path
@@ -57,13 +97,18 @@
 
       //start drawing
       svgCanvas.addEventListener('click', (e) => {
+         //adjust click X and Y <<<<<<<<<<<<<<<<<<<<<<<<<<
+         svgPos = svgCanvas.getBoundingClientRect()
+         console.log(`${svgPos.x} | ${svgPos.y}`)
+         let xPos = e.clientX - svgPos.x
+         let yPos = e.clientY - svgPos.y
 
          if (!pathObject.hasAttribute('d')) {
-            pathObject.setAttribute('d', `M${e.clientX} ${e.clientY}`)
+            pathObject.setAttribute('d', `M${xPos} ${yPos}`)
          } else {
             let d2 = pathObject.getAttribute('d')
             if (d2.charAt(d2.length - 1) == 'z') {
-               pathObject.setAttribute('d', `${d2}M${e.clientX} ${e.clientY}`)
+               pathObject.setAttribute('d', `${d2}M${xPos} ${yPos}`)
             }
          }
 
