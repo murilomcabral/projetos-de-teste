@@ -6,17 +6,20 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <style>
 
-      * {
-         margin: 0;
-         padding: 0;
+      *, ::before, ::after {margin: 0;padding: 0;box-sizing: border-box;}
+
+      :root {
+         --size: 100vh;
       }
 
-      /* path:hover {filter: invert(1);} */
-      
+      html {
+         background-color: bisque;
+      }
+
       svg {
          margin: auto;
-         width: 540px;
-         height: 540px;
+         width: 100%;
+         height: 90vh;
          stroke: red;
          fill: rgba(0 0 255 / .2);
          stroke-width: 1px;
@@ -31,6 +34,7 @@
       <path></path>
    </svg>
    <script>
+
       const svgCanvas = document.querySelector('svg')
       const pathObject = document.querySelector('path')
       let dCheck = ''
