@@ -12,126 +12,27 @@
          background-color: bisque;
       }
 
-      div {
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
+      body {
+         display: grid;
+         width: 100dvw;
+         height: 100dvh;
+         justify-content: center;
+         align-items: center  ;
       }
-      
-      path {
-         stroke: red;
-         fill: rgba(0 0 0 / 0);
-         stroke-width: 2px;
+
+      canvas {
+         background-color: white;
+         width: inherit;
+         height: inherit;
       }
-      
 
    </style>
-   <title></title>
+   <title>Teste</title>
 </head>
 <body>
-   <div>
-      <svg>
-         <!-- <path class="animate" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path> -->
-         <path class="animate" d="M 4 8 L 10 1 L 13 0 L 12 3 L 5 9 C 6 10 6 11 7 10 C 7 11 8 12 7 12 A 1.42 1.42 0 0 1 6 13 A 5 5 0 0 0 4 10 Q 3.5 9.9 3.5 10.5 T 2 11.8 T 1.2 11 T 2.5 9.5 T 3 9 A 5 5 90 0 0 0 7 A 1.42 1.42 0 0 1 1 6 C 1 5 2 6 3 6 C 2 7 3 7 4 8 M 10 1 L 10 3 L 12 3 L 10.2 2.8 L 10 1"></path>
-      </svg>
-   </div>
+   <canvas></canvas>
    <script>
-
-      const table = document.querySelector('table')
-      const svgCanvas = document.querySelector('svg')
-      const pathObject = document.querySelector('path')
-      let svgPos = svgCanvas.getBoundingClientRect()
-      let dCheck = ''
-      const textarea = document.querySelector('textarea')
-      
-      
-      //track line end
-      function handleMouseEvent(e) {
-         //adjust click X and Y >>>>>
-         svgPos = svgCanvas.getBoundingClientRect()
-         console.log(`${Math.floor(svgPos.x)} | ${Math.floor(svgPos.y)}`)
-         let xPos = e.clientX - Math.floor(svgPos.x)
-         let yPos = e.clientY - Math.floor(svgPos.y)
-         //<<<<<
-         pathObject.setAttribute('d', `${dCheck}L${xPos} ${yPos}`)
-      }
-
-      //double-click closes path
-      function closePath() {
-         d = pathObject.getAttribute('d')
-         d += 'z'
-         pathObject.setAttribute('d', d)
-         svgCanvas.removeEventListener('mousemove', handleMouseEvent)
-      }
-
-      svgCanvas.addEventListener('dblclick', closePath)
-      window.addEventListener('keydown', (e) => {if (e.key === 'Enter') {closePath()}})
-
-      //start drawing
-      svgCanvas.addEventListener('click', (e) => {
-         //adjust click X and Y >>>>>
-         svgPos = svgCanvas.getBoundingClientRect()
-         console.log(`${Math.floor(svgPos.x)} | ${Math.floor(svgPos.y)}`)
-         let xPos = e.clientX - Math.floor(svgPos.x)
-         let yPos = e.clientY - Math.floor(svgPos.y)
-         //<<<<<
-
-         if (!pathObject.hasAttribute('d')) {
-            pathObject.setAttribute('d', `M${xPos} ${yPos}`)
-         } else {
-            let d2 = pathObject.getAttribute('d')
-            if (d2.charAt(d2.length - 1) == 'z') {
-               pathObject.setAttribute('d', `${d2}M${xPos} ${yPos}`)
-            }
-         }
-
-         dCheck = pathObject.getAttribute('d')
-         svgCanvas.addEventListener('mousemove', handleMouseEvent)
-
-      })
-
-      //animate bellow
-
-      const $header = document.querySelector('head')
-      const $path = document.querySelector('path')
-
-      const pathTotLen = $path.getTotalLength()
-      const stlSheet = document.createElement('style')
-
-      const pathX = $path.getBoundingClientRect().width
-      const pathY = $path.getBoundingClientRect().height
-
-      const size = 100;
-
-      stlSheet.textContent = `
-      svg {
-         width: ${size}px;
-         height: ${size}px;
-      }
-
-      .animate {
-         stroke-width: 0.15px;
-         scale: 5;
-         animation: anim 3s infinite linear;
-      }
-
-      @keyframes anim {
-         0% {
-            stroke-dasharray: ${pathTotLen/2};
-            stroke-dashoffset: ${pathTotLen};
-         }
-         100% {
-            stroke-dasharray: ${pathTotLen/2};
-            stroke-dashoffset: ${0};
-         }
-      }
-      `
-      $header.append(stlSheet)
-
-      console.log(pathX)
-      console.log(pathY)
-
+      const canvas = document.querySelector('canvas')
    </script>
 </body>
 </html>
