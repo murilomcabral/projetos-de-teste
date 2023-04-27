@@ -20,19 +20,31 @@
          align-items: center  ;
       }
 
-      canvas {
+      svg {
          background-color: white;
          width: inherit;
          height: inherit;
+      }
+
+      path {
+         stroke: red;
+         stroke-width: 2px;
       }
 
    </style>
    <title>Teste</title>
 </head>
 <body>
-   <svg></svg>
    <script>
-      const svgCanvas = document.querySelector('svg')
+      const newSvgCanvas = document.createElement('svg')
+      document.body.appendChild(newSvgCanvas)
+      function start() {
+         let svg = document.querySelector('svg')
+         let path = document.createElement('path')
+         path.setAttribute('d', 'M0 0L50 50L100 200')
+         svg.append(path)
+      }
+      start()
    </script>
 </body>
 </html>
