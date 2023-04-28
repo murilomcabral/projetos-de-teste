@@ -27,11 +27,8 @@
          flex-wrap: wrap;
          gap: 10px;
       }
-      
+
       div :not(.container) {
-         width: 200px;
-         height: 100px;
-         background-color: white;
          outline: 1px solid rgba(255 0 0/ .3);
       }
 
@@ -39,44 +36,58 @@
    <title>Teste</title>
 </head>
 <body>
-
+   <div class="container"></div>
    <script>
 
-      const container = document.createElement('div')
-      container.setAttribute('class', 'container')
-      document.body.append(container)
+      const $container = document.querySelector('div.container');
+
+      const shapeList = [];
 
       class Box {
 
-         constructor(width = 200, height = 100, bgColor = 'white') {
-            this.width = width
-            this.height = height
-            this.bgColor = bgColor
-            this.settings = []
+         constructor(width = 300, height = 200, bgColor = 'white') {
+            this.id = null
+            this.width = width;
+            this.height = height;
+            this.bgColor = bgColor;
+            this.settings = [];
          }
 
          create(qty = 1) {
             for (let i = 1; i <= qty; i++) {
-               const shape = document.createElement('div')
-               shape.style.cssText = `width: ${this.width}; height: ${this.height}; background-color: ${this.bgColor};`
-               container.append(shape)
+               this.id = shapeList.length + i
+               const shape = document.createElement('div');
+               shape.style.cssText = `
+                  width: ${this.width}px;
+                  height: ${this.height}px;
+                  background-color: ${this.bgColor};
+               `
+               $container.appendChild(shape);
             }
-          }
-
-         menu() {
-            this.settings.push('asd')
-            console.log(this.settings)
          }
 
-         color(color) {
-            this.style.backgroundColor = color
+         setSize() {}
+
+         shapeSettings() {
+            for (let i = 1; i <= 8; i++) {
+               
+            }
          }
+
+         color(color) {}
 
       }
 
-      const box1 = new Box()
-      box1.create()
-      box1.menu()
+      function callObj() {
+         for (let shape of shapeList) {
+            shape.create()
+            shape.setWidth()
+         }
+      }
+
+      let box = new Box()
+      box.create()
+      box.setWidth()
 
    </script>
 </body>
