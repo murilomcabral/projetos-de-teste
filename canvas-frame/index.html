@@ -50,8 +50,8 @@
             this.width = 200;
             this.height = 150;
             this.bgColor = 'white';
-            this.settings = [];
             this.object = null;
+            this.settings = [];
          }
 
          create() {
@@ -61,15 +61,14 @@
             this.update()
          }
 
-
-         //stuck here <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
          update() {
+            this.object.style.cssText = ''
             this.object.style.cssText = `
                width: ${this.width}px;
                height: ${this.height}px;
                background-color: ${this.bgColor}
             `
-            console.log(this.object)
+            $container.append(this.object)
          }
 
       }
@@ -77,10 +76,11 @@
       //aux functions >>
       function makeBox(n = 1) {
          const shapeListLength = shapeList.length
-         let i = 1;
-         while (i <= n) {
+         let i = 0;
+         while (i < n) {
             let box = new Box(shapeListLength + i)
             box.create()
+            shapeList.push(box)
             i++
          }
          update()
@@ -90,16 +90,14 @@
          $container.innerHTML = '';
          for (let shape of shapeList) {
             shape.update()
-            $container.append(shape.object)
          }
       }
       // <<
 
       function test() {
          makeBox()
-         makeBox(3)
+         makeBox(5)
          makeBox(2)
-         update()
          console.log(...shapeList)
       }
 
