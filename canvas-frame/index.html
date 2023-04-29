@@ -40,54 +40,70 @@
    <script>
 
       const $container = document.querySelector('div.container');
-
       const shapeList = [];
 
+      //shape class
       class Box {
 
-         constructor(width = 300, height = 200, bgColor = 'white') {
-            this.id = null
-            this.width = width;
-            this.height = height;
-            this.bgColor = bgColor;
+         constructor(id) {
+            this.id = id;
+            this.width = 200;
+            this.height = 150;
+            this.bgColor = 'white';
             this.settings = [];
+            this.object = null;
          }
 
-         create(qty = 1) {
-            for (let i = 1; i <= qty; i++) {
-               this.id = shapeList.length + i
-               const shape = document.createElement('div');
-               shape.style.cssText = `
-                  width: ${this.width}px;
-                  height: ${this.height}px;
-                  background-color: ${this.bgColor};
-               `
-               $container.appendChild(shape);
-            }
+         create() {
+            const shape = document.createElement('div');
+            shape.setAttribute('class', `shape box${this.id}`)
+            this.object = shape
+            this.update()
          }
 
-         setSize() {}
 
-         shapeSettings() {
-            for (let i = 1; i <= 8; i++) {
-               
-            }
+         //stuck here <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+         update() {
+            this.object.style.cssText = `
+               width: ${this.width}px;
+               height: ${this.height}px;
+               background-color: ${this.bgColor}
+            `
+            console.log(this.object)
          }
-
-         color(color) {}
 
       }
 
-      function callObj() {
+      //aux functions >>
+      function makeBox(n = 1) {
+         const shapeListLength = shapeList.length
+         let i = 1;
+         while (i <= n) {
+            let box = new Box(shapeListLength + i)
+            box.create()
+            i++
+         }
+         update()
+      }
+
+      function update() {
+         $container.innerHTML = '';
          for (let shape of shapeList) {
-            shape.create()
-            shape.setWidth()
+            shape.update()
+            $container.append(shape.object)
          }
       }
+      // <<
 
-      let box = new Box()
-      box.create()
-      box.setWidth()
+      function test() {
+         makeBox()
+         makeBox(3)
+         makeBox(2)
+         update()
+         console.log(...shapeList)
+      }
+
+      test()
 
    </script>
 </body>
