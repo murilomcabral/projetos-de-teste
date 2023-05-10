@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  min-height: 100dvh;
+  padding: 20px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea {
+  width: 500px;
+  min-height: 200px;
+  resize: none;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+button {
+  padding: 5px;
+}
