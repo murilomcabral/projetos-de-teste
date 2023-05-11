@@ -1,7 +1,6 @@
-<a href="https://murilomcabral.github.io/projetos-de-teste/randomTable/index.html">Tabela com números aleatórios</a><br><br>
-<a href="https://murilomcabral.github.io/projetos-de-teste/tabelaNumerador/index.html">Tabela para numerador</a><br><br>
-<a href="https://murilomcabral.github.io/projetos-de-teste/grid/grid-01/index.html">MDN Grid</a><br><br>
-<a href="https://murilomcabral.github.io/projetos-de-teste/webTest/index.html">RGB</a><br><br>
-<a href="https://murilomcabral.github.io/projetos-de-teste/documentacao/assessment-image-gallery/index.html">Image gallery</a><br><br>
-<a href="https://murilomcabral.github.io/projetos-de-teste/javascript-mdn/bouncing-balls/index.html">Bouncing Balls - MDN</a><br><br>
-[Sorteador](https://murilomcabral.github.io/projetos-de-teste/sorteador/index.html)
+- [Tabela com números aleatórios](https://murilomcabral.github.io/projetos-de-teste/randomTable/index.html)
+- [Tabela para numerador](https://murilomcabral.github.io/projetos-de-teste/tabelaNumerador/index.html)
+- [RGB](https://murilomcabral.github.io/projetos-de-teste/webTest/index.html)
+- [Image gallery](https://murilomcabral.github.io/projetos-de-teste/documentacao/assessment-image-gallery/index.html)
+- [Bouncing Balls - MDN](https://murilomcabral.github.io/projetos-de-teste/javascript-mdn/bouncing-balls/index.html)
+- [Sorteador](https://murilomcabral.github.io/projetos-de-teste/sorteador/index.html)
