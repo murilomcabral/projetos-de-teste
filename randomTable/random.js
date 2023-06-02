@@ -1,5 +1,5 @@
 const table = document.querySelector('table');
-const bttGenerate = document.querySelector('#btnGenerateNew');
+const bttGenerate = document.querySelector('#bttn-generate-new');
 let arr = [];
 const xA = document.querySelector('#xAxis');
 const yA = document.querySelector('#yAxis');
@@ -144,9 +144,9 @@ bttGenerate.addEventListener('click', () => {
 });
 
 function showMenu(ev) {
-  if (optBox.style.display =='block') {
+  if (optBox.style.display =='flex') {
     optBox.style.display = 'none';
   } else {
-    optBox.style.display = 'block';
+    optBox.style.display = 'flex';
   }
 }

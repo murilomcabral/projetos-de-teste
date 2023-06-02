@@ -13,47 +13,57 @@
 <body>
   <span class="reportContainer"></span>  
   
-  <section class="menuContainer">
+  <section class="menu-container">
 
     <button class="menuBtt">
       <span class="material-symbols-outlined">Settings</span>
     </button>
-    <nav class="optBox">
-      
-      <div class="common">
-        <h1>Input</h1>
-      </div>
-      <div class="common">
-        <p>X Axis: <input type="number" name="xAxis" id="xAxis"></p>
-        <p>Y Axis: <input type="number" name="yAxis" id="yAxis"></p>
+    <nav class="optBox" style="display: none;">
+      <h1>Input</h1>
+
+      <div class="input-container">
+        <div>X Axis: <input class="size-input" type="number" inputmode="numeric" name="xAxis" id="xAxis"></div>
+        <div>Y Axis: <input class="size-input" type="number" inputmode="numeric" name="yAxis" id="yAxis"></div>
       </div>
 
-      <div class="common">
-        <p><input type="button" id="btnGenerateNew" class="btnGenerateNew" value="Generate"></p>
+      <div class="bttn-generate-new-container">
+        <div><input type="button" id="bttn-generate-new" class="bttn-generate-new" value="Generate"></div>
       </div>
 
-      <p userSelect>Width: <span class="cel-width-output"></span></p>
-      <input type="range" name="cel-width-slider" class="cel-width-slider" id="cel-width-slider" min="3" max="20" step="1">
+      <div>
+        <div>Width: <span class="cel-width-output"></span></div>
+        <input type="range" name="cel-width-slider" class="cel-width-slider" id="cel-width-slider" min="3" max="20" step="1">
+      </div>
 
-      <p userSelect>Height: <span class="cel-height-output"></span></p>
-      <input type="range" name="cel-height-slider" class="cel-height-slider" id="cel-height-slider" min="3" max="20" step="1">
+      <div>
+        <div>Height: <span class="cel-height-output"></span></div>
+        <input type="range" name="cel-height-slider" class="cel-height-slider" id="cel-height-slider" min="3" max="20" step="1">
+      </div>
       
-      <p userSelect>Font Size: <span class="cel-font-size-output"></span></p>
-      <input type="range" name="cel-font-size-slider" class="cel-font-size-slider" id="cel-font-size-slider" min="3" max="20" step="1">
+      <div>
+        <div>Font Size: <span class="cel-font-size-output"></span></div>
+        <input type="range" name="cel-font-size-slider" class="cel-font-size-slider" id="cel-font-size-slider" min="3" max="20" step="1">
+      </div>
       
-      <p userSelect>Horizontal Spacing: <span class="horizontal-spacing-output"></span></p>
-      <input type="range" name="horizontal-spacing-slider" class="horizontal-spacing-slider" id="horizontal-spacing-slider" min="1" max="20" step="1">
+      <div>
+        <div>Horizontal Spacing: <span class="horizontal-spacing-output"></span></div>
+        <input type="range" name="horizontal-spacing-slider" class="horizontal-spacing-slider" id="horizontal-spacing-slider" min="1" max="20" step="1">
+      </div>
       
-      <p userSelect>Vertical Spacing: <span class="vertical-spacing-output"></span></p>
-      <input type="range" name="vertical-spacing-slider" class="vertical-spacing-slider" id="vertical-spacing-slider" min="1" max="20" step="1">
+      <div>
+        <div>Vertical Spacing: <span class="vertical-spacing-output"></span></div>
+        <input type="range" name="vertical-spacing-slider" class="vertical-spacing-slider" id="vertical-spacing-slider" min="1" max="20" step="1">
+      </div>
       
-      <p userSelect>Num. color: <span class="data-color-output"></span></p>
-      <input type="color" name="data-color-box" class="data-color-box" id="data-color-box">     
+      <div>
+        <div>Num. color: <span class="data-color-output"></span></div>
+        <input type="color" name="data-color-box" class="data-color-box" id="data-color-box">
+      </div>
+
     </nav>
-
   </section>
 
-  <div class="common tableContainer">
+  <div class="table-container">
     <table>
     </table>
   </div>

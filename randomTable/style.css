@@ -12,20 +12,14 @@ html {
   background-color: rgb(224, 230, 255);
 }
 
-div.common {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 50px;
-  margin-bottom: 10px;
+.table-container {
+  border-collapse: collapse;
 }
 
-.tableContainer {
-  margin: auto;
-  margin-top: 20px;
+.table-container > table {
   width: max-content;
-  border-collapse: collapse;
+  margin: 50px auto 0;
+  padding: 5px;
 }
 
 tr {
@@ -42,16 +36,4 @@ td {
   font-size: 12pt;
   color: hsl(0, 0%, 0%);
   text-align: center;
-}
-
-input[type="number"] {
-  display: flex;
-  flex-direction: column;
-  font-size: 15px;
-  width: 60px;
-  padding: 5px;
-}
-
-.btnGenerateNew {
-  padding: 3px;
 }

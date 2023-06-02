@@ -1,3 +1,16 @@
-.menuContainer {
+@page {
+   size: auto;
+   margin: 10px;
+}
+
+@page :header {
    display: none;
+}
+
+.menu-container {
+   display: none;
+}
+
+.table-container table {
+   margin: auto;
 }

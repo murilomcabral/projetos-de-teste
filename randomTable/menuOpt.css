@@ -1,15 +1,78 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;600;800&display=swap');
+
+:root {
+  --ffamily: 'Geologica', sans-serif;
+}
+
+.optBox {
+  color: white;
+  font-family: var(--ffamily);
+  background-color: rgba(0 0 0 / .5);
+  backdrop-filter: blur(7px);
+  border-radius: 10px;
+  flex-direction: column;
+  position: absolute;
+  inset: 40px 10px auto auto;
+  padding: 15px;
+  gap: 15px;
+  min-width: 300px;
+  z-index: 99;
+}
+
+.optBox  h1 {
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.bttn-generate-new-container ~ * > input{
+  width: 100%;
+}
+
+.bttn-generate-new {
+  font-family: var(--ffamily);
+  font-weight: 400;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 5px;
+}
+
 button.menuBtt {
   background-color: transparent;
   border-style: none;
-
   text-align: center;
   position: fixed;
   cursor: pointer;
   top: 10px;
   right: 10px;
 }
+
+
+.size-input {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+}
+
+input[type="color"] {
+  height: 50px;
+}
+
+.size-input::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* ===================== */
+/* menu button animation */
 
 button.menuBtt span {
   user-select: none;
@@ -20,44 +83,4 @@ button.menuBtt span:hover {
   color: rgba(220 0 0 / 1);
   scale: 1.3;
   transform: rotateZ(90deg);
-}
-
-nav {
-  background-color: rgba(255 255 255 / .7);
-  border-radius: 5%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 50px;
-  right: 10px;
-  display: none;
-  z-index: 100;
-}
-
-input[type="range"] {
-  margin: 5px;
-  width: 200px;
-  height: 10px;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background: #ff4500;
-  cursor: ew-resize;
-  box-shadow: 0 0 2px 0 #555;
-}
-
-input[type=range]::-webkit-slider-runnable-track  {
-  -webkit-appearance: none;
-  box-shadow: none;
-  border: none;
-  background: transparent;
-}
-
-[userSelect] {
-  user-select: none;
 }
