@@ -72,7 +72,7 @@ function populateTable() {
 //===================================================================
 //===================================================================
 
-const menuIcon = document.querySelector('.menuBtt')
+const menuIcon = document.querySelector('.menuBtt span')
 const optBox = document.querySelector('.optBox')
 
 //cell width controller
@@ -126,8 +126,7 @@ function styleTable() {
   verticalSpacingOutput.textContent = verticalSpacingSlider.value + " mm";
 }
 
-menuIcon.addEventListener('click', (e) => {
-  //add stop
+menuIcon.addEventListener('click', () => {
   if (optBox.style.display =='flex') {
     optBox.style.display = 'none';
   } else {

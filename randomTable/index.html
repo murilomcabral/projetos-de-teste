@@ -14,16 +14,14 @@
   <span class="reportContainer"></span>  
   
   <section class="menu-container">
-
     <div class="menuBtt">
       <span class="material-symbols-outlined">Settings</span>
-
       <nav class="optBox" style="display: none;">
         <h1>Input</h1>
   
         <div class="input-container">
-          <div>X Axis: <input class="size-input" type="number" inputmode="numeric" name="xAxis" id="xAxis"></div>
-          <div>Y Axis: <input class="size-input" type="number" inputmode="numeric" name="yAxis" id="yAxis"></div>
+          <div>X Axis: <input class="size-input" type="number" inputmode="numeric" name="xAxis" id="xAxis" ondblclick="this.select()"></div>
+          <div>Y Axis: <input class="size-input" type="number" inputmode="numeric" name="yAxis" id="yAxis" ondblclick="this.select()"></div>
         </div>
   
         <div class="bttn-generate-new-container">
@@ -42,17 +40,17 @@
         
         <div>
           <div>Font Size: <span class="cel-font-size-output"></span></div>
-          <input type="range" name="cel-font-size-slider" class="cel-font-size-slider" id="cel-font-size-slider" min="3" max="20" step="1">
+          <input type="range" name="cel-font-size-slider" class="cel-font-size-slider" id="cel-font-size-slider" min="3" max="18" step="1">
         </div>
         
         <div>
           <div>Horizontal Spacing: <span class="horizontal-spacing-output"></span></div>
-          <input type="range" name="horizontal-spacing-slider" class="horizontal-spacing-slider" id="horizontal-spacing-slider" min="1" max="20" step="1">
+          <input type="range" name="horizontal-spacing-slider" class="horizontal-spacing-slider" id="horizontal-spacing-slider" min="1" max="5" step="1">
         </div>
         
         <div>
           <div>Vertical Spacing: <span class="vertical-spacing-output"></span></div>
-          <input type="range" name="vertical-spacing-slider" class="vertical-spacing-slider" id="vertical-spacing-slider" min="1" max="20" step="1">
+          <input type="range" name="vertical-spacing-slider" class="vertical-spacing-slider" id="vertical-spacing-slider" min="1" max="5" step="1">
         </div>
         
         <div>

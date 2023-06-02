@@ -7,7 +7,7 @@
 }
 
 .menu-container {
-  position: relative;
+  position: fixed;
   z-index: 99;
 }
 
