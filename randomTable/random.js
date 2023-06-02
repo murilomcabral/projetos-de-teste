@@ -126,7 +126,14 @@ function styleTable() {
   verticalSpacingOutput.textContent = verticalSpacingSlider.value + " mm";
 }
 
-menuIcon.addEventListener('click', showMenu);
+menuIcon.addEventListener('click', (e) => {
+  //add stop
+  if (optBox.style.display =='flex') {
+    optBox.style.display = 'none';
+  } else {
+    optBox.style.display = 'flex';
+  }
+});
 
 menuOptionsList.forEach((elem) => {
   elem.addEventListener('input', styleTable)
@@ -142,11 +149,3 @@ bttGenerate.addEventListener('click', () => {
   populateTable();
   styleTable();
 });
-
-function showMenu(ev) {
-  if (optBox.style.display =='flex') {
-    optBox.style.display = 'none';
-  } else {
-    optBox.style.display = 'flex';
-  }
-}
