@@ -75,6 +75,24 @@ function populateTable() {
 const menuIcon = document.querySelector('.menuBtt span')
 const optBox = document.querySelector('.optBox')
 
+
+//need improving
+const menuContainer = document.querySelector('.menu-container')
+let passArr = ''
+window.addEventListener('keydown', (e) => {
+  setTimeout(() => {
+    passArr = ''
+    console.log('reset')
+  }, 2000);
+  passArr += e.key
+  console.log(passArr)
+  if (passArr.includes('owned') && menuContainer.style.display == 'none') {
+    menuContainer.style.display = 'block'
+  } else if (passArr.includes('owned') && menuContainer.style.display == 'block') {
+    menuContainer.style.display = 'none'
+  }
+})
+
 //cell width controller
 const widthSlider = document.querySelector('.cel-width-slider')
 const widthOutput = document.querySelector('.cel-width-output')
