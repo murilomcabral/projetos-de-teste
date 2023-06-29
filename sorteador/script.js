@@ -27,7 +27,7 @@ function getList() {
 }
 
 function raffle(list) {
-  let rnd = Math.floor(Math.random() * (list.length))
+  let rnd = Math.round(Math.random() * (list.length - 1))
   let winner = list[rnd]
   $resultBox.style.display = 'block'
   $resultBox.innerHTML = ''
