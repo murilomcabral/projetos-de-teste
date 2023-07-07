@@ -126,7 +126,7 @@
       }
 
       function stopWheel() {
-         if (test === true) {
+         if (test) {
             window.addEventListener('mousemove', updateInfo);
             test = false;
          } else {
@@ -135,10 +135,12 @@
          }
       }
 
-      window.document.addEventListener('load', updateInfo);
-      window.addEventListener('resize', updateWindowSize);
-      window.document.addEventListener('wheel', satChange);
-      window.document.body.addEventListener('click', stopWheel);
+      document.addEventListener('load', updateInfo);
+      addEventListener('resize', updateWindowSize);
+      document.addEventListener('wheel', satChange);
+      document.body.addEventListener('click', (event) => {
+         event.target === document.body ? stopWheel() : ''
+      });
 
 
     </script>
